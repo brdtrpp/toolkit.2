@@ -40,7 +40,6 @@ ActivitiesSchema = new SimpleSchema({
 
   rollup: {
     type: Number,
-    decimal: true,
     autoform: {
       omit: true,
     }

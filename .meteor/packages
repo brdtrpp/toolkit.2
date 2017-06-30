@@ -29,3 +29,4 @@ accounts-password
 twbs:bootstrap
 aldeed:autoform
 aldeed:schema-deny
+aldeed:collection2-core

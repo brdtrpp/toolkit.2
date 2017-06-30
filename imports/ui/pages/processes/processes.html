@@ -1,4 +1,7 @@
 <template name="processes">
-  <h3>toaster</h3>
-  <h4>toaster</h4>
+  <!-- {{#afModal class="btn btn-primary" collection="processes" operation="insert"}}
+    Add a new Processes
+  {{/afModal}} -->
+
+  {{> quickForm collection="Processes" id="insertBookForm" type="insert"}}
 </template>

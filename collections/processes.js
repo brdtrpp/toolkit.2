@@ -24,11 +24,17 @@ ProcessSchema = new SimpleSchema({
   },
 
   app: {
-    type: [Object],
+    type: Array,
     label: "What applications are in this Process?",
-    minCount: 1,
-    maxCount: 4
+  },
+
+  "app.$":{
+    label: function() {
+      return "toaster"
     },
+    type: Object
+  },
+
   "app.$.name": {
     type: String,
   },
