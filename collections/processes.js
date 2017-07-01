@@ -4,7 +4,7 @@ Processes = new Mongo.Collection("processes");
 
 if (Meteor.isServer) {
  Meteor.publish('processes', function() {
-    return Processes.find({"owner.owner": this.userId});
+    return Processes.find({"owner.id": this.userId});
   });
 }
 

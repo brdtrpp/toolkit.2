@@ -1,7 +1,19 @@
 <template name="processes">
-  <!-- {{#afModal class="btn btn-primary" collection="processes" operation="insert"}}
-    Add a new Processes
-  {{/afModal}} -->
+  {{#autoForm collection="Processes" id="insertProcessForm" type="insert"}}
+    <fieldset>
+      <h3>Add a Process</h3>
+      {{> afQuickField name='name'}}
+      {{> afQuickField name='downtime'}}
+      {{> afQuickField name='timeperiod'}}
+      {{> afQuickField name='app'}}
+    </fieldset>
+    <button type="submit" class="btn btn-primary">Create Process</button>
+  {{/autoForm}}
+  <br>
+  <div class="list-group">
+    {{#each process}}
+      {{> processListItem}}
+    {{/each}}
+  </div>
 
-  {{> quickForm collection="Processes" id="insertBookForm" type="insert"}}
 </template>

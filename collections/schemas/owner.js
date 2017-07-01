@@ -2,7 +2,7 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 OwnerSchema = new SimpleSchema({
-  owner: {
+  id: {
     type: String,
     autoValue: function() {
       return this.userId;
