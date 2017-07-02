@@ -6,6 +6,7 @@ import '../../ui/layouts/body/body.js';
 import '../../ui/pages/processes/processes.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/not-found/not-found.js';
+import '../../ui/pages/processes/processDetails.js';
 
 
 Router.configure({
@@ -34,4 +35,16 @@ Router.route('/processes', function() {
   this.render('processes');
 },{
   name: "processes",
+});
+
+Router.route('/processes/:id', function() {
+  var params = this.params;
+  var id = params.id;
+  this.render('processDetails', {
+    data: function () {
+      return Processes.findOne({_id: id});
+    }
+  });
+},{
+  name: "processDetails",
 });

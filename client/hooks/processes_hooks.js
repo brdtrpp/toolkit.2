@@ -1,22 +1,20 @@
 import moment from 'moment';
+import { EJSON } from 'meteor/ejson'
 
 AutoForm.hooks({
   insertProcessForm: {
     before: {
      insert: function(doc) {
-       // Potentially alter the doc
-       console.log(doc);
-
        return doc;
-       // Then return it or pass it to this.result()
-       //return doc; (synchronous)
-       //return false; (synchronous, cancel)
-       //this.result(doc); (asynchronous)
-       //this.result(false); (asynchronous, cancel)
      }
    },
    onSuccess: function(insert, result) {
+     Bert.alert('Process Successfully Created', 'success');
      AutoForm.resetForm(insertProcessForm);
+   },
+   onError: function(insert, result){
+     console.log(result);
+     Bert.alert("Somethig went wrong, please check the form again", 'danger');
    },
    beginSubmit: function() {},
    endSubmit: function() {}

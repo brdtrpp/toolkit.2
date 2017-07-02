@@ -42,11 +42,13 @@ ProcessSchema = new SimpleSchema({
   timeperiod: {
     type: Number,
     label: "What is the time period under review? (in minutes)",
+    min: 0
   },
 
   downtime: {
     type: Number,
-    label: "What is the downtime cost for this process? (in $/hr)"
+    label: "What is the downtime cost for this process? (in $/hr)",
+    min: 0
   }
 
 });
