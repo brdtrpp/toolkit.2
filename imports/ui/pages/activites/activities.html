@@ -1,0 +1,24 @@
+<template name="activities">
+  <button class="btn btn-primary btn-block foo" type="button" data-toggle="collapse" data-target="#insertActivitesFormBody" aria-expanded="false" aria-controls="insert">
+    Add an Activity
+  </button>
+  <div class="collapse" id="insertActivitesFormBody">
+    <div class="well">
+      {{#autoForm collection="Activities" id="insertActivitesForm" type="insert"}}
+        <fieldset>
+          <h3>Add an Activity</h3>
+          {{> afQuickField name='name'}}
+          {{> afQuickField name='percent'}}
+          {{> afQuickField name='times'}}
+          {{> afQuickField name='state'}}
+        </fieldset>
+        <button type="submit" class="btn btn-primary btn-block">Create Activity</button>
+      {{/autoForm}}
+    </div>
+  </div>
+  {{foo}}
+  {{#each activity}}
+    {{> activityItem}}
+  {{/each}}
+
+</template>

@@ -3,7 +3,7 @@ import './processListItem.html'
 
 Template.processes.helpers({
   create: function(){
-
+    
   },
   rendered: function(){
 
@@ -11,7 +11,6 @@ Template.processes.helpers({
   destroyed: function(){
 
   },
-
   process: function(){
     return Processes.find().fetch();
   }

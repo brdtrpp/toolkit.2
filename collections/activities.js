@@ -4,7 +4,7 @@ Activities = new Mongo.Collection("activities");
 
 if (Meteor.isServer) {
   Meteor.publish('activities', function() {
-    return Activities.find({"owner.owner": this.userId});
+    return Activities.find({"owner.id": this.userId});
   })
 }
 
@@ -18,9 +18,9 @@ ActivitiesSchema = new SimpleSchema({
 
   state: {
     type: String,
-    autoform: {
-      omit: true,
-    }
+    // autoform: {
+    //   omit: true,
+    // }
   },
 
   name: {
