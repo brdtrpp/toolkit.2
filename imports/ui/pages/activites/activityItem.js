@@ -18,6 +18,10 @@ Template.activityItem.events({
   "click .delete-activity": function(event, template){
     var doc = this;
     Meteor.call("deleteActivity", doc);
+  },
+  "click .clone-activity": function(event, template){
+    var doc = this;
+    Meteor.call("cloneActivity", doc);
   }
 });
 

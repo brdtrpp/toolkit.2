@@ -5,7 +5,7 @@ AutoForm.hooks({
   insertActivitesForm: {
     before: {
      insert: function(doc) {
-       doc.rollup = 10;
+       doc.rollup = 0;
        return doc;
      }
    },
