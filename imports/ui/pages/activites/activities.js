@@ -1,5 +1,5 @@
 import './activities.html'
-import './activityItem.html'
+import './activityItem.js'
 
 
 Template.activities.helpers({

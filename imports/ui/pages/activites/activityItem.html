@@ -4,35 +4,42 @@
       <div class="panel-heading">
         <h4 class="panel-title" role="button" id="{{_id}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}" aria-expanded="true" aria-controls="{{_id}}">
           <a>{{name}}</a>
-          <a class='pull-right'>${{rollup}} <span class="glyphicon glyphicon-option-vertical" aria-hidden="true"></span></a>
-        </h4>
-      </div>
-
-        <div class="row">
-          <div class="col-xs-10 col-xs-offset-1">
-            <div class="collapse" id="insertSubactivityForm">
-              {{#autoForm collection="Subactivity" id="insertSubactivityForm" type="insert"}}
-                <fieldset>
-                  <h3>Add an Activity</h3>
-                  {{> afQuickField name='name'}}
-                  {{> afQuickField name='duration'}}
-                  {{> afQuickField name='downtime'}}
-                  {{> afQuickField name='rate'}}
-                  {{> afQuickField name='people'}}
-                  {{> afQuickField name='consumable'}}
-                  {{> afQuickField name='itemCost'}}
-                  {{> afQuickField name='itemNum'}}
-                </fieldset>
-                <button type="submit" class="btn btn-primary btn-block">Create Subactivity to {{name}}</button>
-              {{/autoForm}}
+          <div class='pull-right'>${{rollup}}
+            <div class="btn-group">
+              <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span>
+              </a>
+              <ul class="dropdown-menu dropdown-menu-right">
+                <li><a href="#"><span class="glyphicon glyphicon-repeat"></span> Clone</a></li>
+                <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
+                <li><a href="#" class="delete-activity"><span class="glyphicon glyphicon-trash"></span> Delete</a></li>
+              </ul>
             </div>
           </div>
-
+        </h4>
+      </div>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="collapse" id="insertSubactivityForm">
+            {{#autoForm collection="Subactivities" id="insertSubactivityForm" type="insert"}}
+              <fieldset>
+                <h3>Add an Activity</h3>
+                {{> afQuickField name='name'}}
+                {{> afQuickField name='duration'}}
+                {{> afQuickField name='downtime'}}
+                {{> afQuickField name='rate'}}
+                {{> afQuickField name='people'}}
+                {{> afQuickField name='consumable'}}
+                {{> afQuickField name='itemCost'}}
+                {{> afQuickField name='itemNum'}}
+              </fieldset>
+              <button type="submit" class="btn btn-success btn-block">Create Subactivity</button>
+            {{/autoForm}}
+          </div>
         </div>
-
+      </div>
       <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
         <div class="panel-body">
-          <button class="btn btn-primary btn-block foo" type="button" data-toggle="collapse" data-target="#insertSubactivityForm" aria-expanded="false" aria-controls="insert">
+          <button class="btn btn-warning btn-block foo" type="button" data-toggle="collapse" data-target="#insertSubactivityForm" aria-expanded="false" aria-controls="insert">
             Add a Subactivity to {{name}}
           </button>
         </div>

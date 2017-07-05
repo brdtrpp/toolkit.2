@@ -1,10 +1,10 @@
 import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
-Subactivity = new Mongo.Collection('subactivity');
+Subactivities = new Mongo.Collection('subactivity');
 
 if (Meteor.isServer) {
   Meteor.publish('subactivity', function() {
-    return Subactivity.find({"owner.owner": this.userId});
+    return Subactivities.find({"owner.owner": this.userId});
   })
 }
 
@@ -77,4 +77,4 @@ SubactivitiesSchema = new SimpleSchema({
   }
 });
 
-Subactivity.attachSchema(SubactivitiesSchema);
+Subactivities.attachSchema(SubactivitiesSchema);
