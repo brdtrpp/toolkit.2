@@ -12,9 +12,7 @@ Template.activities.helpers({
   destroyed: function(){
 
   },
-  activity: function(){
-    return Activities.find().fetch();
-  },
+  
 });
 
 Template.activities.events({

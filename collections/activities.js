@@ -16,6 +16,19 @@ ActivitiesSchema = new SimpleSchema({
     }
   },
 
+  process: {
+    type: String,
+    autoform: {
+      omit: true,
+    },
+    autoValue: function(){
+      if (Meteor.isClient) {
+        var pro = Session.get('process');
+        return pro;
+      }
+    }
+  },
+
   state: {
     type: String,
     // autoform: {

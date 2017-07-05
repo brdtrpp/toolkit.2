@@ -12,4 +12,11 @@ Template.processDetails.helpers({
   destroyed: function(){
 
   },
+  activity: function(){
+    return Activities.find({process: this._id}).fetch();
+  },
+});
+
+Template.processDetails.onRendered( function(){
+  Session.set('process', this.data._id);
 });

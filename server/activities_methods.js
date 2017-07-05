@@ -8,7 +8,8 @@ Meteor.methods({
       percent: doc.percent,
       times: doc.times,
       state: doc.state,
-      rollup: doc.rollup
+      rollup: doc.rollup,
+      process: doc.process,
     });
   }
 });
