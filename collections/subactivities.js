@@ -30,7 +30,8 @@ SubactivitiesSchema = new SimpleSchema({
 
   duration: {
     type: Number,
-    label: "How Long Does it take?"
+    label: "How Long Does it take?",
+    defaultValue: 0,
   },
 
   downtime: {
@@ -39,34 +40,39 @@ SubactivitiesSchema = new SimpleSchema({
     autoform: {
       afFieldInput: {
         type: "boolean-radios",
-
       }
-    }
+    },
+    defaultValue: false,
   },
 
   rate: {
     type: Number,
-    label: "Labor Rate $/hr"
+    label: "Labor Rate $/hr",
+    defaultValue: 0,
   },
 
   people: {
     type: Number,
-    label: "Number of People"
+    label: "Number of People",
+    defaultValue: 0,
   },
 
   consumable: {
     type: Number,
-    label: "Consumables Cost"
+    label: "Consumables Cost",
+    defaultValue: 0,
   },
 
   itemCost: {
     type: Number,
-    label: "Cost of Items"
+    label: "Cost of Items",
+    defaultValue: 0,
   },
 
   itemNum: {
     type: Number,
-    label: "Number of Items"
+    label: "Number of Items",
+    defaultValue: 0,
   },
 
   rollup: {

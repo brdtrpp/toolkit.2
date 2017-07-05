@@ -4,7 +4,7 @@ AutoForm.hooks({
   insertSubactivityForm: {
     before: {
      insert: function(doc) {
-       console.log(this.data);
+       console.log(doc);
        return doc;
      }
    },

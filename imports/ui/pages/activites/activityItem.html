@@ -26,8 +26,8 @@
             <li class="list-group-item">Porta ac consectetur ac</li>
             <li class="list-group-item">Vestibulum at eros</li>
           </ul>
-
               <div class="collapse" id="insertSubactivityForm">
+                <div class="well">
                 {{#autoForm collection="Subactivities" id="insertSubactivityForm" type="insert"}}
                   <fieldset>
                     <h3>Add a Subactivity to {{name}}</h3>
@@ -43,7 +43,7 @@
                   <button type="submit" class="btn btn-success btn-block">Create Subactivity</button>
                 {{/autoForm}}
               </div>
-
+            </div>
           <button class="btn btn-warning btn-block foo" type="button" data-toggle="collapse" data-target="#insertSubactivityForm" aria-expanded="false" aria-controls="insert">
             Add a Subactivity to {{name}}
           </button>
