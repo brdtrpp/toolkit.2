@@ -1,7 +1,9 @@
 <template name="activities">
-  <button class="btn btn-primary btn-block foo" type="button" data-toggle="collapse" data-target="#insertActivitesFormBody" aria-expanded="false" aria-controls="insert">
+
+  <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#insertActivitesFormBody" aria-expanded="false" aria-controls="insert">
     Add an Activity
   </button>
+
   <div class="collapse" id="insertActivitesFormBody">
     <div class="well">
       {{#autoForm collection="Activities" id="insertActivitesForm" type="insert"}}
@@ -16,7 +18,8 @@
       {{/autoForm}}
     </div>
   </div>
-  {{foo}}
+
+
   {{#each activity}}
     {{> activityItem}}
   {{/each}}

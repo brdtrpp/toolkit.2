@@ -1,15 +1,16 @@
 import moment from 'moment';
+import { EJSON } from 'meteor/ejson';
 
 AutoForm.hooks({
   insertSubactivityForm: {
     before: {
      insert: function(doc) {
-       console.log(doc);
        return doc;
      }
    },
    onSuccess: function(insert, result) {
      Bert.alert('Process Successfully Created', 'success');
+     $('#insertSubactivityFormWell').collapse('hide');
      AutoForm.resetForm(insertSubactivityForm);
    },
    onError: function(insert, result){

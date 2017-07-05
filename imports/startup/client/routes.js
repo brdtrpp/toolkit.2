@@ -18,7 +18,7 @@ Router.configure({
       Meteor.subscribe('drivers'),
       Meteor.subscribe('processes'),
       Meteor.subscribe('activities'),
-      Meteor.subscribe('subactivity'),
+      Meteor.subscribe('subactivities'),
       Meteor.subscribe('state'),
     ];
   },

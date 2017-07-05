@@ -1,5 +1,7 @@
 import { Template } from 'meteor/templating';
 import './activityItem.html';
+import '/imports/ui/pages/subactivities/subactivity.js';
+import '/imports/ui/pages/subactivities/subactivity.html';
 
 
 Template.activityItem.helpers({
@@ -12,6 +14,9 @@ Template.activityItem.helpers({
   destroyed: function(){
 
   },
+  subactivity: function(){
+    return Subactivities.find({activity: this._id}).fetch();
+  }
 });
 
 Template.activityItem.events({
@@ -22,6 +27,9 @@ Template.activityItem.events({
   "click .clone-activity": function(event, template){
     var doc = this;
     Meteor.call("cloneActivity", doc);
+  },
+  "click .activity": function(event, template){
+    Session.set('act', this._id);
   }
 });
 

@@ -1,10 +1,10 @@
 import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
-Subactivities = new Mongo.Collection('subactivity');
+Subactivities = new Mongo.Collection('subactivities');
 
 if (Meteor.isServer) {
-  Meteor.publish('subactivity', function() {
-    return Subactivities.find({"owner.owner": this.userId});
+  Meteor.publish('subactivities', function() {
+    return Subactivities.find({"owner.id": this.userId});
   })
 }
 
@@ -20,6 +20,13 @@ SubactivitiesSchema = new SimpleSchema({
     type: String,
     autoform: {
       omit: true,
+    },
+    autoValue: function(){
+      if (Meteor.isClient) {
+        var act = Session.get('act')
+        return act;
+      }
+
     }
   },
 
@@ -79,7 +86,8 @@ SubactivitiesSchema = new SimpleSchema({
     type: Number,
     autoform: {
       omit: true,
-    }
+    },
+    defaultValue: 0,
   }
 });
 
