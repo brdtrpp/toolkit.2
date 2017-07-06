@@ -1,6 +1,10 @@
 Meteor.methods({
   deleteActivity: function(doc){
     Activities.remove({_id: doc._id});
+    var subs = Subactivities.find({activity: doc._id}).fetch();
+    _.forEach(subs, function(sub){
+      Meteor.call('deleteSubactivity', sub);
+    })
   },
   cloneActivity: function(doc){
     Activities.insert({

@@ -1,5 +1,5 @@
 <template name="activityItem">
-  <div class="panel-group" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
+  <div class="panel-group activity" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
     <div class="panel panel-info">
       <div class="panel-heading">
         <h4 class="panel-title" role="button" id="{{_id}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}">
@@ -24,7 +24,7 @@
               {{> subactivityItem}}
             {{/each}}
 
-              <div class="collapse" id="insertSubactivityFormWell">
+              <div class="collapse" id="insertSubactivityFormWell{{_id}}">
                 <div class="well">
                 {{#autoForm collection="Subactivities" id="insertSubactivityForm" type="insert"}}
                   <fieldset>
@@ -42,7 +42,7 @@
                 {{/autoForm}}
               </div>
             </div>
-          <button class="btn btn-warning btn-block foo" type="button" data-toggle="collapse" data-target="#insertSubactivityFormWell" aria-expanded="false" aria-controls="insert">
+          <button class="btn btn-warning btn-block" type="button" data-toggle="collapse" data-target="#insertSubactivityFormWell{{_id}}" aria-expanded="false" aria-controls="insert">
             Add a Subactivity to {{name}}
           </button>
         </div>

@@ -10,11 +10,12 @@ AutoForm.hooks({
    },
    onSuccess: function(insert, result) {
      Bert.alert('Subactivity Successfully Created', 'success');
+    console.log(result);
+     Meteor.call('rollup');
      $('#insertSubactivityFormWell').collapse('hide');
      AutoForm.resetForm(insertSubactivityForm);
    },
    onError: function(insert, result){
-     console.log(result);
      Bert.alert("Somethig went wrong, please check the form again", 'danger');
    },
    beginSubmit: function() {},

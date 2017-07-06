@@ -87,7 +87,19 @@ SubactivitiesSchema = new SimpleSchema({
     autoform: {
       omit: true,
     },
-    defaultValue: 0,
+    autoValue: function(){
+      if (Meteor.isClient) {
+        let p = Session.get('process');
+        let pdt = Processes.findOne({_id: p});
+        if (this.field('downtime').value === true) {
+          let ru = ( this.field('itemNum').value * this.field('itemCost').value ) + this.field('consumable').value + ( ( this.field('duration').value / 60 ) * ( this.field('rate').value * this.field('people').value ) ) + ( ( this.field('duration').value / 60 ) * pdt.downtime );
+          return ru;
+        } else {
+          let ru = ( this.field('itemNum').value * this.field('itemCost').value ) + this.field('consumable').value + ( ( this.field('duration').value / 60 ) * ( this.field('rate').value * this.field('people').value ) );
+          return ru;
+        }
+      }  
+    }
   }
 });
 
