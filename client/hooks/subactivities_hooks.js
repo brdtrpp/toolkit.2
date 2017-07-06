@@ -9,7 +9,7 @@ AutoForm.hooks({
      }
    },
    onSuccess: function(insert, result) {
-     Bert.alert('Process Successfully Created', 'success');
+     Bert.alert('Subactivity Successfully Created', 'success');
      $('#insertSubactivityFormWell').collapse('hide');
      AutoForm.resetForm(insertSubactivityForm);
    },

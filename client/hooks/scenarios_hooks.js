@@ -2,17 +2,17 @@ import moment from 'moment';
 import { EJSON } from 'meteor/ejson';
 
 AutoForm.hooks({
-  insertActivitesForm: {
+  insertScenarioForm: {
     before: {
      insert: function(doc) {
-       doc.rollup = 0;
+       console.log(doc);
        return doc;
      }
    },
    onSuccess: function(insert, result) {
-     Bert.alert('Activity Successfully Created', 'success');
-     $('#insertActivitesFormBody').collapse('hide');
-     AutoForm.resetForm(insertActivitesForm);
+     Bert.alert('Scenario Successfully Created', 'success');
+     $('#insertSubactivityFormWell').collapse('hide');
+     AutoForm.resetForm(insertScenarioForm);
    },
    onError: function(insert, result){
      console.log(result);

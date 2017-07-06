@@ -12,10 +12,13 @@ Template.processDetails.helpers({
   destroyed: function(){
 
   },
-  activity: function(){
-    return Activities.find({process: this._id}).fetch();
+  scenarios: function(){
+    return Scenarios.find({process: this._id}).fetch();
   },
   active: function(){
     return "active";
   }
+});
+Template.processDetails.onRendered( function(){
+  Session.set('process', this.data._id);
 });

@@ -7,5 +7,25 @@
     <li role="presentation" class="{{active}}"><a href="#">{{name}}</a></li>
     {{/each}}
   </ul>
-  {{> scenario}}
+  <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#insertScenarioFormBody" aria-expanded="false" aria-controls="insert">
+    Add a Scenario
+  </button>
+
+  <div class="collapse" id="insertScenarioFormBody">
+    <div class="well">
+      {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
+        <fieldset>
+          <h3>Add a Scenario</h3>
+          {{> afQuickField name='name'}}
+          {{> afQuickField name='description'}}
+          {{> afQuickField name='state'}}
+
+        </fieldset>
+        <button type="submit" class="btn btn-primary btn-block">Create Scenario</button>
+      {{/autoForm}}
+    </div>
+  </div>
+  {{#each scenarios}}
+    {{> scenario}}
+  {{/each}}
 </template>

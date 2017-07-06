@@ -20,6 +20,13 @@ ScenarioSchema = new SimpleSchema({
     type: String,
     autoform: {
       omit: true,
+    },
+    autoValue: function(){
+      if (Meteor.isClient){
+        var process = Session.get('process');
+        
+        return process;
+      }
     }
   },
 
@@ -34,13 +41,18 @@ ScenarioSchema = new SimpleSchema({
 
   state: {
     type: String,
-    allowedValues: ["current", "future"],
+    // allowedValues: ["current", "future"],
   },
 
   rollup: {
     type: Number,
     autoform: {
       omit: true,
+    },
+    autoValue: function(){
+      if (Meteor.isClient){
+        return 0;
+      }
     }
   }
 });

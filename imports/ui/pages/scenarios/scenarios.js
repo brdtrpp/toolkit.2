@@ -12,15 +12,18 @@ Template.scenario.helpers({
   destroyed: function(){
 
   },
+  activity: function(){
+    return Activities.find({scenario: this._id}).fetch();
+  }
 });
 
-// Template.scenario.events({
-//   "click #foo": function(event, template){
-//
-//   }
-// });
+Template.scenario.events({
+  "click .scenario": function(event, template){
+    Session.set('scenario', this._id);
+  }
+});
 
 
 Template.scenario.onRendered( function(){
-  Session.set('scenario', this.data._id);
+
 });
