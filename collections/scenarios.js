@@ -1,23 +1,16 @@
 import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
-State = new Mongo.Collection('state');
+Scenarios = new Mongo.Collection('scenarios');
 
 if (Meteor.isServer) {
-  Meteor.publish('state', function() {
-    return State.find({"owner.owner": this.userId});
+  Meteor.publish('scenarios', function() {
+    return Scenarios.find({"owner.id": this.userId});
   })
 }
 
-StateSchema = new SimpleSchema({
+ScenarioSchema = new SimpleSchema({
   owner: {
     type: OwnerSchema,
-    autoform: {
-      omit: true,
-    }
-  },
-
-  driver: {
-    type: String,
     autoform: {
       omit: true,
     }
@@ -30,20 +23,18 @@ StateSchema = new SimpleSchema({
     }
   },
 
-  app: {
+  name: {
     type: String,
-    autoform: {
-      omit: true,
-    }
+  },
+
+  description: {
+    type: String,
+
   },
 
   state: {
     type: String,
     allowedValues: ["current", "future"],
-  },
-
-  name: {
-    type: String,
   },
 
   rollup: {
@@ -54,4 +45,4 @@ StateSchema = new SimpleSchema({
   }
 });
 
-State.attachSchema(StateSchema);
+Scenarios.attachSchema(ScenarioSchema);

@@ -19,7 +19,7 @@ Router.configure({
       Meteor.subscribe('processes'),
       Meteor.subscribe('activities'),
       Meteor.subscribe('subactivities'),
-      Meteor.subscribe('state'),
+      Meteor.subscribe('scenarios'),
     ];
   },
 });
