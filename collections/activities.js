@@ -16,24 +16,17 @@ ActivitiesSchema = new SimpleSchema({
     }
   },
 
-  process: {
+  scenario: {
     type: String,
     autoform: {
       omit: true,
     },
     autoValue: function(){
       if (Meteor.isClient) {
-        var pro = Session.get('process');
-        return pro;
+        var sce = Session.get('scenario');
+        return sce;
       }
     }
-  },
-
-  state: {
-    type: String,
-    // autoform: {
-    //   omit: true,
-    // }
   },
 
   name: {

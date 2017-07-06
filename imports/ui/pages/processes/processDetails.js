@@ -1,5 +1,6 @@
 import './processDetails.html';
-import '/imports/ui/pages/activites/activities.js';
+import '/imports/ui/pages/scenarios/scenarios.js'
+
 
 Template.processDetails.helpers({
   create: function(){
@@ -17,8 +18,4 @@ Template.processDetails.helpers({
   active: function(){
     return "active";
   }
-});
-
-Template.processDetails.onRendered( function(){
-  Session.set('process', this.data._id);
 });
