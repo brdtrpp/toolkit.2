@@ -1,7 +1,6 @@
 import { Template } from 'meteor/templating';
 import './activityItem.html';
-import '/imports/ui/pages/subactivities/subactivity.js';
-import '/imports/ui/pages/subactivities/subactivity.html';
+import '/imports/ui/pages/subactivities/subactivityItem.js';
 
 
 Template.activityItem.helpers({
@@ -9,7 +8,7 @@ Template.activityItem.helpers({
 
   },
   rendered: function(){
-     
+
   },
   destroyed: function(){
 
