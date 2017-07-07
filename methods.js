@@ -1,7 +1,13 @@
 Meteor.methods({
   updateActivity: function(actId){
-    var act = Activities.findOne(actId);
-    Activities.update(act, {
+    Activities.update(actId, {
+      $set: {},
+    });
+    var sceId = Activities.findOne(actId).scenario;
+    Meteor.call('updateScenario', sceId);
+  },
+  updateScenario: function(sceId){
+    Scenarios.update(sceId, {
       $set: {},
     });
   }

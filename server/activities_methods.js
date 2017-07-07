@@ -11,10 +11,11 @@ Meteor.methods({
       name: doc.name + " - clone",
       percent: doc.percent,
       times: doc.times,
-      state: doc.state,
+      scenario: doc.scenario,
       rollup: doc.rollup,
       process: doc.process,
     });
+    Meteor.call('updateScenario', doc.scenario);
   },
 
 });

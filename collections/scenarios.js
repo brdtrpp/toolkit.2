@@ -24,7 +24,7 @@ ScenarioSchema = new SimpleSchema({
     autoValue: function(){
       if (Meteor.isClient){
         var process = Session.get('process');
-        
+
         return process;
       }
     }
@@ -50,8 +50,18 @@ ScenarioSchema = new SimpleSchema({
       omit: true,
     },
     autoValue: function(){
-      if (Meteor.isClient){
+      var sumArray = [];
+      var sces = Activities.find({scenario: this.docId}).fetch();
+      _.forEach(sces, function(sce){
+        sumArray.push(sce.rollup);
+      });
+      function getSum(total, num){
+        return total + num;
+      }
+      if (sumArray == 0) {
         return 0;
+      } else {
+        return sumArray.reduce(getSum);
       }
     }
   }

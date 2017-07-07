@@ -29,9 +29,7 @@ ProcessSchema = new SimpleSchema({
   },
 
   "app.$":{
-    label: function() {
-      return "Application"
-    },
+    label: "Application",
     type: Object
   },
 
@@ -45,6 +43,10 @@ ProcessSchema = new SimpleSchema({
     min: 0
   },
 
+  // drivers: {
+  //   type: Array,
+  //   label: "What are some drivers?"
+  // },
 
   downtime: {
     type: Number,
