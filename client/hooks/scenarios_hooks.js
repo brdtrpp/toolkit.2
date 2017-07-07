@@ -5,7 +5,6 @@ AutoForm.hooks({
   insertScenarioForm: {
     before: {
      insert: function(doc) {
-       console.log(doc);
        return doc;
      }
    },

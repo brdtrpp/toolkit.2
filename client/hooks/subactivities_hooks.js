@@ -10,8 +10,8 @@ AutoForm.hooks({
    },
    onSuccess: function(insert, result) {
      Bert.alert('Subactivity Successfully Created', 'success');
-    console.log(result);
-     Meteor.call('rollup');
+     var act = Subactivities.findOne({_id: result}).activity;
+     Meteor.call('updateActivity', act);
      $('#insertSubactivityFormWell').collapse('hide');
      AutoForm.resetForm(insertSubactivityForm);
    },

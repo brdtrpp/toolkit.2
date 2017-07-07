@@ -48,6 +48,21 @@ ActivitiesSchema = new SimpleSchema({
     type: Number,
     autoform: {
       omit: true,
+    },
+    autoValue: function(){
+      var sumArray = [];
+      var subs = Subactivities.find({activity: this.docId}).fetch();
+      _.forEach(subs, function(sub){
+        sumArray.push(sub.rollup);
+      });
+      function getSum(total, num){
+        return total + num;
+      }
+      if (sumArray == 0) {
+        return 0;
+      } else {
+        return sumArray.reduce(getSum);
+      }
     }
   }
 

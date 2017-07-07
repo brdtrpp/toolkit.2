@@ -15,5 +15,6 @@ Meteor.methods({
       rollup: doc.rollup,
       process: doc.process,
     });
-  }
+  },
+
 });
