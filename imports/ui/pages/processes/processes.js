@@ -1,9 +1,9 @@
 import './processes.html'
-import './processListItem.html'
+import './processListItem.js'
 
 Template.processes.helpers({
   create: function(){
-    
+
   },
   rendered: function(){
 
@@ -17,7 +17,5 @@ Template.processes.helpers({
 });
 
 Template.processes.events({
-  "click #foo": function(event, template){
 
-  }
 });

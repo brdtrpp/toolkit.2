@@ -9,7 +9,7 @@ Template.activityItem.helpers({
 
   },
   rendered: function(){
-     console.log('toaster');
+     
   },
   destroyed: function(){
 

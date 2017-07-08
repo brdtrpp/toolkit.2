@@ -30,7 +30,7 @@ ProcessSchema = new SimpleSchema({
 
   "app.$":{
     label: function() {
-      return "toaster"
+      return "Application"
     },
     type: Object
   },
@@ -44,6 +44,7 @@ ProcessSchema = new SimpleSchema({
     label: "What is the time period under review? (in minutes)",
     min: 0
   },
+
 
   downtime: {
     type: Number,

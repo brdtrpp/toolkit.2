@@ -1,8 +1,8 @@
 Meteor.methods({
-  deleteActivity(doc){
+  deleteActivity: function(doc){
     Activities.remove({_id: doc._id});
   },
-  cloneActivity(doc){
+  cloneActivity: function(doc){
     Activities.insert({
       name: doc.name + " - clone",
       percent: doc.percent,
