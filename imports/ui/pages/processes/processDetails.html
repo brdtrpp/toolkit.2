@@ -2,9 +2,13 @@
   <div class="page-header">
     <h1>Process: {{name}}</h1>
   </div>
-  <ul class="nav nav-tabs nav-justified">
+  {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
+  <button class="btn btn-primary change-chart" type="button">
+    Add a Scenario
+  </button>
+  <ul class="nav nav-pills nav-justified">
     {{#each app}}
-    <li role="presentation" class="{{active}}"><a href="#">{{name}}</a></li>
+      {{> application}}
     {{/each}}
   </ul>
   <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#insertScenarioFormBody" aria-expanded="false" aria-controls="insert">

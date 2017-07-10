@@ -24,8 +24,20 @@ ScenarioSchema = new SimpleSchema({
     autoValue: function(){
       if (Meteor.isClient){
         var process = Session.get('process');
-
         return process;
+      }
+    }
+  },
+
+  application: {
+    type: String,
+    autoform: {
+      omit: true,
+    },
+    autoValue: function(){
+      if (Meteor.isClient){
+        var app = Session.get('app');
+        return app;
       }
     }
   },
