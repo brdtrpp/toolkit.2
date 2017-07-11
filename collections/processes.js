@@ -38,11 +38,13 @@ ProcessSchema = new SimpleSchema({
   },
 
   timeperiod: {
-    type: Number,
-    label: "What is the time period under review? (in minutes)",
-    min: 0
+    type: Object,
+    label: "What is the time period under review?",
   },
 
+  'timeperiod.duration': Number,
+  "timeperiod.type": String,
+  "timeperiod.time": Number,
   // drivers: {
   //   type: Array,
   //   label: "What are some drivers?"

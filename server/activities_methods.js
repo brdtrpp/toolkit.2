@@ -4,7 +4,8 @@ Meteor.methods({
     var subs = Subactivities.find({activity: doc._id}).fetch();
     _.forEach(subs, function(sub){
       Meteor.call('deleteSubactivity', sub);
-    })
+    });
+    Meteor.call('updateScenario', doc.scenario);
   },
   cloneActivity: function(doc){
     Activities.insert({
