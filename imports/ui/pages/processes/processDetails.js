@@ -29,8 +29,11 @@ Template.processDetails.helpers({
 
     _.forEach(sces, function(sce){
       var chartData = [];
-      var actCount =Ac
+      var actCount = Activities.find({scenario: sce._id}).count();
       var acts = Activities.find({scenario: sce._id}).fetch();
+
+      cats.push(actCount);
+
       _.forEach(acts, function(act){
         chartData.push([
           act.name, act.rollup
@@ -49,9 +52,16 @@ Template.processDetails.helpers({
       chartInfo.push(sceInfo);
     });
 
+    var catsReturn = Math.max.apply(null, cats);
+    var catsFinal = [];
 
+    for (i = 0; i < catsReturn; i++) {
+      var ob = 1 + i;
+      console.log(ob)
+      catsFinal.push("Activity " + ob);
+    }
 
-
+    catsFinal.push("Total Cost");
 
     return {
       chart: {
@@ -66,20 +76,7 @@ Template.processDetails.helpers({
         pointFormat: '<b>{point.percentage:.1f}%</b>'
       },
       xAxis: {
-        categories: [
-          'Jan',
-          'Feb',
-          'Mar',
-          'Apr',
-          'May',
-          'Jun',
-          'Jul',
-          'Aug',
-          'Sep',
-          'Oct',
-          'Nov',
-          'Dec'
-        ],
+        categories: catsFinal,
         crosshair: true
       },
       plotOptions: {
