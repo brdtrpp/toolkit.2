@@ -23,11 +23,6 @@
     {{/each}}
   </ul>
   <br>
-  <!-- Button trigger modal -->
-  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#scenarioModal">
-    Add Scenario
-  </button>
-
   <!-- Modal -->
   <div class="modal fade" id="scenarioModal" tabindex="-1" role="dialog" aria-labelledby="scenarioModal">
     <div class="modal-dialog" role="document">
@@ -51,8 +46,13 @@
       </div>
     </div>
   </div>
-  <br>
   {{#each scenarios}}
     {{> scenario}}
   {{/each}}
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#scenarioModal">
+    Add Scenario
+  </button>
+  <br>
+  <br>
 </template>
