@@ -11,7 +11,7 @@ AutoForm.hooks({
    },
    onSuccess: function(insert, result) {
      Bert.alert('Activity Successfully Created', 'success');
-     $('#insertActivitesFormBody').collapse('hide');
+     $('#activityModal').modal('hide');
      AutoForm.resetForm(insertActivitesForm);
    },
    onError: function(insert, result){

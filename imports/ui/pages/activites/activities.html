@@ -1,21 +1,7 @@
 <template name="activities">
-
-  <button class="btn btn-info btn-block" type="button" data-toggle="collapse" data-target="#insertActivitesFormBody{{_id}}" aria-expanded="false" aria-controls="insert">
+<div class="scenario">
+  <button class="btn btn-info btn-block" type="button" data-toggle="modal" data-target="#activityModal">
     Add an Activity
   </button>
-
-  <div class="collapse" id="insertActivitesFormBody{{_id}}">
-    <div class="well">
-      {{#autoForm collection="Activities" id="insertActivitesForm" type="insert"}}
-        <fieldset>
-          <h3>Add an Activity</h3>
-          {{> afQuickField name='name'}}
-          {{> afQuickField name='percent'}}
-          {{> afQuickField name='times'}}
-
-        </fieldset>
-        <button type="submit" class="btn btn-primary btn-block">Create Activity</button>
-      {{/autoForm}}
-    </div>
-  </div>
+</div>
 </template>

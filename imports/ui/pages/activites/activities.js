@@ -4,7 +4,6 @@ import './activityItem.js'
 
 Template.activities.helpers({
   create: function(){
-    console.log('elephant');
   },
   rendered: function(){
 
@@ -12,11 +11,11 @@ Template.activities.helpers({
   destroyed: function(){
 
   },
-  
+
 });
 
 Template.activities.events({
-  "click .foo": function(event, template){
-
+  'click .scenario': function(){
+    Session.set('scenario', this._id);
   }
 });

@@ -18,9 +18,7 @@ Template.scenario.helpers({
 });
 
 Template.scenario.events({
-  "click .scenario": function(event, template){
-    Session.set('scenario', this._id);
-  }
+
 });
 
 

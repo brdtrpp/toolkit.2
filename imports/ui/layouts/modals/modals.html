@@ -1,0 +1,62 @@
+<template name="modals">
+  <!-- Activity Modal -->
+  <div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="activityModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="activityModal">Add an Activity</h4>
+        </div>
+        {{#autoForm collection="Activities" id="insertActivitesForm" type="insert"}}
+          <div class="modal-body">
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='percent'}}
+              {{> afQuickField name='times'}}
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary scenario-1">Create Activity</button>
+          </div>
+        {{/autoForm}}
+      </div>
+    </div>
+  </div>
+
+  <!-- Process Modal -->
+  <div class="modal fade" id="processModal" tabindex="-1" role="dialog" aria-labelledby="processModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="processModal">Add Process</h4>
+        </div>
+        <div class="modal-body">
+          {{#autoForm collection="Processes" id="insertProcessForm" type="insert"}}
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='downtime'}}
+              <div class="row">
+                <div class="col-md-6">
+                  {{> afQuickField name='timeperiod.duration'}}
+                </div>
+                <div class="col-md-6">
+                  {{> afQuickField name='timeperiod.type'}}
+                </div>
+              </div>
+
+              {{> afQuickField name='app'}}
+              <!-- {{> afQuickField name='drivers'}} -->
+            </fieldset>
+
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Create Process</button>
+            </div>
+          {{/autoForm}}
+        </div>
+
+      </div>
+    </div>
+</template>
