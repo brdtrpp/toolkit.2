@@ -23,28 +23,7 @@
     {{/each}}
   </ul>
   <br>
-  <!-- Modal -->
-  <div class="modal fade" id="scenarioModal" tabindex="-1" role="dialog" aria-labelledby="scenarioModal">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-          <h4 class="modal-title" id="scenarioModal">Add Scenario</h4>
-        </div>
-        <div class="modal-body">
-          {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
-            <fieldset>
-              {{> afQuickField name='name'}}
-              {{> afQuickField name='description'}}
-              {{> afQuickField name='state'}}
-            </fieldset>
-            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            <button type="submit" class="btn btn-primary">Create Scenario</button>
-          {{/autoForm}}
-        </div>
-      </div>
-    </div>
-  </div>
+
   {{#each scenarios}}
     {{> scenario}}
   {{/each}}
