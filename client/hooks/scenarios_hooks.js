@@ -10,7 +10,7 @@ AutoForm.hooks({
    },
    onSuccess: function(insert, result) {
      Bert.alert('Scenario Successfully Created', 'success');
-     $('#insertSubactivityFormWell').collapse('hide');
+     $('#scenarioModal').modal('hide');
      AutoForm.resetForm(insertScenarioForm);
    },
    onError: function(insert, result){

@@ -4,7 +4,7 @@
   </div>
   {{> highchartsHelper chartId="test" chartWidth="100%" charHeight="100%" chartObject=topGenresChart}}
   <!-- Single button -->
-  <div class="btn-group">
+  <div class="btn-group pull-right">
     <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
       Chart Type <span class="caret"></span>
     </button>
@@ -15,29 +15,43 @@
       <li><a href="#" class='bar'>Bar Graph</a></li>
     </ul>
   </div>
+  <br>
+  <br>
   <ul class="nav nav-pills nav-justified">
     {{#each app}}
       {{> application}}
     {{/each}}
   </ul>
-  <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#insertScenarioFormBody" aria-expanded="false" aria-controls="insert">
-    Add a Scenario
+  <br>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#scenarioModal">
+    Add Scenario
   </button>
 
-  <div class="collapse" id="insertScenarioFormBody">
-    <div class="well">
-      {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
-        <fieldset>
-          <h3>Add a Scenario</h3>
-          {{> afQuickField name='name'}}
-          {{> afQuickField name='description'}}
-          {{> afQuickField name='state'}}
+  <!-- Modal -->
+  <div class="modal fade" id="scenarioModal" tabindex="-1" role="dialog" aria-labelledby="scenarioModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="scenarioModal">Add Scenario</h4>
+        </div>
+        <div class="modal-body">
+          {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='description'}}
+              {{> afQuickField name='state'}}
 
-        </fieldset>
-        <button type="submit" class="btn btn-primary btn-block">Create Scenario</button>
-      {{/autoForm}}
+            </fieldset>
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create Scenario</button>
+          {{/autoForm}}
+        </div>
+      </div>
     </div>
   </div>
+  <br>
   {{#each scenarios}}
     {{> scenario}}
   {{/each}}

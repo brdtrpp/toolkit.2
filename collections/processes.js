@@ -43,7 +43,17 @@ ProcessSchema = new SimpleSchema({
   },
 
   'timeperiod.duration': Number,
-  "timeperiod.type": String,
+  "timeperiod.type": {
+    type: String,
+    autoform: {
+      options: {
+        day: "Days",
+        week: "Weeks",
+        month: "Months",
+        year: "Years"
+      }
+    }
+  },
   "timeperiod.time": Number,
   // drivers: {
   //   type: Array,
