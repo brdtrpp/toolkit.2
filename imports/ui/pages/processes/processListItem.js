@@ -16,7 +16,9 @@ Template.processListItem.helpers({
 
 Template.processListItem.events({
   "click .delete-process": function(event, template){
-    var doc = this;
-    Meteor.call('deleteProcess', doc);
+    Meteor.call('deleteProcess', this._id);
+  },
+  'click .clone-process': function(){
+    Meteor.call('cloneProcess', this._id);
   }
 });

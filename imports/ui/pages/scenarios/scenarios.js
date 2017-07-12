@@ -18,7 +18,12 @@ Template.scenario.helpers({
 });
 
 Template.scenario.events({
+  'click .delete-scenario': function(){
+    Meteor.call('deleteScenario', this._id);
+  },
+  'click .clone-scenario': function(){
 
+  }
 });
 
 
