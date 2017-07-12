@@ -1,5 +1,5 @@
 <template name="modals">
-  <!-- Activity Modal -->
+  <!-- Activity Insert Modal -->
   <div class="modal fade" id="activityModal" tabindex="-1" role="dialog" aria-labelledby="activityModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -24,7 +24,7 @@
     </div>
   </div>
 
-  <!-- Process Modal -->
+  <!-- Process Insert Modal -->
   <div class="modal fade" id="processModal" tabindex="-1" role="dialog" aria-labelledby="processModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
@@ -59,30 +59,60 @@
     </div>
   </div>
 
-    <!-- Scenario Modal -->
-    <div class="modal fade" id="scenarioModal" tabindex="-1" role="dialog" aria-labelledby="scenarioModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="scenarioModal">Add Scenario</h4>
-          </div>
-          {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
-            <div class="modal-body">
-
-              <fieldset>
-                {{> afQuickField name='name'}}
-                {{> afQuickField name='description'}}
-                {{> afQuickField name='state'}}
-              </fieldset>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Create Scenario</button>
-            </div>
-          {{/autoForm}}
-
+  <!-- Scenario Insert Modal -->
+  <div class="modal fade" id="scenarioModal" tabindex="-1" role="dialog" aria-labelledby="scenarioModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="scenarioModal">Add Scenario</h4>
         </div>
+        {{#autoForm collection="Scenarios" id="insertScenarioForm" type="insert"}}
+          <div class="modal-body">
+
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='description'}}
+              {{> afQuickField name='state'}}
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create Scenario</button>
+          </div>
+        {{/autoForm}}
       </div>
     </div>
+  </div>
+
+  <!-- Subactivities Insert Modal -->
+  <div class="modal fade" id="subactivityModal" tabindex="-1" role="dialog" aria-labelledby="subactivityModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="subactivityModal">Add Subactivity</h4>
+        </div>
+        {{#autoForm collection="Subactivities" id="insertSubactivityForm" type="insert"}}
+          <div class="modal-body">
+
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='duration'}}
+              {{> afQuickField name='downtime'}}
+              {{> afQuickField name='rate'}}
+              {{> afQuickField name='people'}}
+              {{> afQuickField name='consumable'}}
+              {{> afQuickField name='itemCost'}}
+              {{> afQuickField name='itemNum'}}
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Create Subactivity</button>
+          </div>
+        {{/autoForm}}
+      </div>
+    </div>
+  </div>
 </template>

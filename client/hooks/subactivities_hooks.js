@@ -12,6 +12,7 @@ AutoForm.hooks({
      Bert.alert('Subactivity Successfully Created', 'success');
      var act = Subactivities.findOne({_id: result}).activity;
      Meteor.call('updateActivity', act);
+     $('#subactivityModal').modal('hide')
      AutoForm.resetForm(insertSubactivityForm);
    },
    onError: function(insert, result){

@@ -1,5 +1,5 @@
 <template name="activityItem">
-  <div class="panel-group activity" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
+  <div class="panel-group" id="accordion{{_id}}" role="tablist" aria-multiselectable="true">
     <div class="panel panel-default">
       <div class="panel-heading">
         <h4 class="panel-title" role="button" id="{{_id}}" data-toggle="collapse" data-parent="#accordion" href="#collapse{{_id}}" aria-expanded="true" aria-controls="collapse{{_id}}">
@@ -24,25 +24,7 @@
               {{> subactivityItem}}
             {{/each}}
 
-              <div class="collapse" id="insertSubactivityFormWell{{_id}}">
-                <div class="well">
-                {{#autoForm collection="Subactivities" id="insertSubactivityForm" type="insert"}}
-                  <fieldset>
-                    <h3>Add a Subactivity to {{name}}</h3>
-                    {{> afQuickField name='name'}}
-                    {{> afQuickField name='duration'}}
-                    {{> afQuickField name='downtime'}}
-                    {{> afQuickField name='rate'}}
-                    {{> afQuickField name='people'}}
-                    {{> afQuickField name='consumable'}}
-                    {{> afQuickField name='itemCost'}}
-                    {{> afQuickField name='itemNum'}}
-                  </fieldset>
-                  <button type="submit" class="btn btn-success btn-block activity">Create Subactivity</button>
-                {{/autoForm}}
-              </div>
-            </div>
-          <button class="btn btn-warning btn-block" type="button" data-toggle="collapse" data-target="#insertSubactivityFormWell{{_id}}" aria-expanded="false" aria-controls="insert">
+          <button class="btn btn-warning btn-block activity" type="button" data-toggle="modal" data-target="#subactivityModal">
             Add a Subactivity to {{name}}
           </button>
         </div>
