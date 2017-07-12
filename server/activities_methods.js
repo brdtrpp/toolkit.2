@@ -7,6 +7,7 @@ Meteor.methods({
     });
     Meteor.call('updateScenario', doc.scenario);
   },
+  
   cloneActivity: function(doc){
     Activities.insert({
       name: doc.name + " - clone",
