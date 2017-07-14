@@ -27,22 +27,53 @@ Template.processDetails.helpers({
     var cats = [];
 
 
+    var catsFinal = [];
+
+    _.forEach(sces, function(sce){
+      var actCount = Activities.find({scenario: sce._id}).count();
+      cats.push(actCount);
+    });
+
+    var catsReturn = Math.max.apply(null, cats);
+
+    //sets number of activities for the chart
+    for (i = 0; i < catsReturn; i++) {
+      var ob = 1 + i;
+      catsFinal.push("Activity " + ob);
+    }
+
+    // pushes last column as total cost for that scenario
+    catsFinal.push("Total Cost");
+
     _.forEach(sces, function(sce){
       var chartData = [];
-      var actCount = Activities.find({scenario: sce._id}).count();
       var acts = Activities.find({scenario: sce._id}).fetch();
 
-      cats.push(actCount);
-
+      //pushes activity rollup to chartData
       _.forEach(acts, function(act){
         chartData.push([
           act.name, act.rollup
         ]);
       });
 
+      if (chartData.length < catsReturn) {
+        var length = chartData.length;
+        for (i = length; i < catsReturn; i++) {
+          var spot = i + 1;
+          chartData.push(["Activity " + spot, 0]);
+
+        }
+      }
+      // console.log(chartData.length);
+      // for (chartData.length; chartData.length < catsReturn; chartData.length++) {
+      //   chartData.push(["0",0]);
+      //   console.log(chartData.length);
+      // }
+
+      //pushes Totals for scenario for last
       chartData.push([
         sce.name + " Total", sce.rollup
-      ])
+      ]);
 
       var sceInfo = {
         type: chartType,
@@ -52,17 +83,6 @@ Template.processDetails.helpers({
       chartInfo.push(sceInfo);
     });
 
-    var catsReturn = Math.max.apply(null, cats);
-    var catsFinal = [];
-
-    for (i = 0; i < catsReturn; i++) {
-      var ob = 1 + i;
-      console.log(ob)
-      catsFinal.push("Activity " + ob);
-    }
-
-    catsFinal.push("Total Cost");
-
     return {
       chart: {
         plotBackgroundColor: null,
@@ -70,7 +90,7 @@ Template.processDetails.helpers({
         plotShadow: false
       },
       title: {
-        text: this.name + "'s Charting"
+        text: this.name + "'s Graph"
       },
       tooltip: {
         pointFormat: '<b>{point.percentage:.1f}%</b>'
@@ -101,7 +121,7 @@ Template.processDetails.helpers({
               enabled: true,
               format: '<b>{point.name}</b>: ${point.rollup:.1f}',
               style: {
-                  color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
+                color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
               },
             }
           },
@@ -113,8 +133,17 @@ Template.processDetails.helpers({
 });
 
 Template.processDetails.events({
-  'click .change-chart': function(){
+  'click .column': function(){
     Session.set('chartType', 'column');
+  },
+  'click .pie': function(){
+    Session.set('chartType', 'pie');
+  },
+  'click .line': function(){
+    Session.set('chartType', 'line');
+  },
+  'click .bar': function(){
+    Session.set('chartType', 'bar');
   }
 });
 
