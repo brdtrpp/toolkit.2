@@ -1,7 +1,7 @@
 Meteor.methods({
-  cloneSubactivity: function(doc){
+  cloneSubactivity: function(doc, actId){
     Subactivities.insert({
-      activity: doc.activity,
+      activity: actId,
       consumable: doc.consumable,
       downtime: doc.downtime,
       duration: doc.duration,
@@ -12,11 +12,11 @@ Meteor.methods({
       rate: doc.rate,
       rollup: doc.rollup
     });
-    Meteor.call('updateActivity', doc.activity);
+    Meteor.call('updateActivity', actId);
   },
   deleteSubactivity: function(doc){
     var actId = Subactivities.findOne({_id: doc._id}).activity;
     Subactivities.remove({_id: doc._id});
     Meteor.call('updateActivity', actId);
-  }
+  },
 });

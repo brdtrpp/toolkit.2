@@ -24,8 +24,8 @@ Template.activityItem.events({
     Meteor.call("deleteActivity", doc);
   },
   "click .clone-activity": function(event, template){
-    var doc = this;
-    Meteor.call("cloneActivity", doc);
+    var sceId = this.scenario;
+    Meteor.call("cloneActivity", this, sceId);
   },
   "click .activity": function(event, template){
     Session.set('act', this._id);

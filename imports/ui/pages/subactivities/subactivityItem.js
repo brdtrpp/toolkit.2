@@ -17,7 +17,8 @@ Template.subactivityItem.helpers({
 Template.subactivityItem.events({
   "click .clone-subactivity": function(event, template){
     var doc = this;
-    Meteor.call('cloneSubactivity', doc);
+    var actId = this.activity;
+    Meteor.call('cloneSubactivity', doc, actId);
   },
 
   "click .delete-subactivity": function(event, template){

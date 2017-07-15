@@ -22,7 +22,7 @@ Template.scenario.events({
     Meteor.call('deleteScenario', this._id);
   },
   'click .clone-scenario': function(){
-
+    Meteor.call('cloneScenario', this);
   }
 });
 

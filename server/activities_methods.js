@@ -7,17 +7,20 @@ Meteor.methods({
     });
     Meteor.call('updateScenario', doc.scenario);
   },
-  
-  cloneActivity: function(doc){
-    Activities.insert({
+
+  cloneActivity: function(doc, sceId){
+    var actId = Activities.insert({
       name: doc.name + " - clone",
       percent: doc.percent,
       times: doc.times,
-      scenario: doc.scenario,
+      scenario: sceId,
       rollup: doc.rollup,
-      process: doc.process,
     });
-    Meteor.call('updateScenario', doc.scenario);
-  },
+    Meteor.call('updateScenario', sceId);
+    var subs = Subactivities.find({activity: doc._id}).fetch();
+    _.forEach(subs, function(sub){
+      Meteor.call('cloneSubactivity', sub, actId);
+    })
 
+  },
 });

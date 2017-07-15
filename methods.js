@@ -8,7 +8,7 @@ Meteor.methods({
     Scenarios.update(sceId, {
       $set: {},
     });
-    var proId = Processes.findOne(sceId).process;
+    var proId = Scenarios.findOne(sceId).process;
     Meteor.call('updateProcess', proId);
   },
   updateActivity: function(actId){
