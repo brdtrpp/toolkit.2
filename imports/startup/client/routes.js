@@ -7,11 +7,12 @@ import '../../ui/pages/processes/processes.js';
 import '../../ui/pages/home/home.js';
 import '../../ui/pages/not-found/not-found.js';
 import '../../ui/pages/processes/processDetails.js';
+import '../../ui/components/spinner.html';
 
 
 Router.configure({
   layoutTemplate: 'App_body',
-  // loadingTemplate: 'loading',
+  loadingTemplate: 'spinBaby',
   // notFoundTemplate: '404',
   waitOn: function(){
     return [

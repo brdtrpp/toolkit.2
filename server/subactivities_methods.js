@@ -10,7 +10,7 @@ Meteor.methods({
       name: doc.name + " - clone",
       people: doc.people,
       rate: doc.rate,
-      rollup: doc.rollup
+      rollup: doc.rollup,
     });
     Meteor.call('updateActivity', actId);
   },

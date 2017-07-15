@@ -19,6 +19,10 @@ Template.subactivityItem.helpers({
     } else {
       return "No"
     }
+  },
+  rollupFixed: function(){
+    var fixed = this.rollup.toFixed(2);
+    return fixed;
   }
 });
 

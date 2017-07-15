@@ -1,0 +1,7 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://brdtrpp:Gr##nM0use3@ds049136-a0.mlab.com:49136,ds049136-a1.mlab.com:49136/toolkit?replicaSet=rs-ds049136"
+     }
+   }
+}

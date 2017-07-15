@@ -14,6 +14,10 @@ Template.scenario.helpers({
   },
   activity: function(){
     return Activities.find({scenario: this._id}).fetch();
+  },
+  rollupFixed: function(){
+    var fixed = this.rollup.toFixed(2);
+    return fixed;
   }
 });
 
@@ -23,6 +27,10 @@ Template.scenario.events({
   },
   'click .clone-scenario': function(){
     Meteor.call('cloneScenario', this);
+  },
+  'click .edit-scenario': function(){
+    Session.set('scenario', this._id);
+    $('#scenarioUpdateModal').modal('show');
   }
 });
 

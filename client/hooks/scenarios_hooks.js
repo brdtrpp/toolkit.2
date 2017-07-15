@@ -19,5 +19,17 @@ AutoForm.hooks({
    },
    beginSubmit: function() {},
    endSubmit: function() {}
-  }
+ },
+ updateScenarioForm: {
+   onSuccess: function(){
+     $('#scenarioUpdateModal').modal('hide');
+     Bert.alert('Subactivity Successfully Updated', 'success');
+   },
+   onError: function(insert, result){
+     console.log(result);
+     Bert.alert("Somethig went wrong, please check the form again", 'danger');
+   },
+   beginSubmit: function() {},
+   endSubmit: function() {}
+ }
 });

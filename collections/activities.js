@@ -67,7 +67,8 @@ ActivitiesSchema = new SimpleSchema({
       } else {
         var sumed = sumArray.reduce(getSum);
         var times = this.field('times').value;
-        return sumed * times;
+        var rv = sumed * times;
+        return rv;
       }
     }
   }

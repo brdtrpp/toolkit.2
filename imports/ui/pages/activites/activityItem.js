@@ -15,6 +15,10 @@ Template.activityItem.helpers({
   },
   subactivity: function(){
     return Subactivities.find({activity: this._id}).fetch();
+  },
+  rollupFixed: function(){
+    var fixed = this.rollup.toFixed(2);
+    return fixed;
   }
 });
 

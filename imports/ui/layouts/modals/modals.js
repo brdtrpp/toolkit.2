@@ -21,6 +21,12 @@ Template.modals.helpers({
     var act = Session.get('act');
     var doc = Activities.findOne(act);
     return doc;
+  },
+
+  sceID: function(){
+    var sce = Session.get('scenario');
+    var doc = Scenarios.findOne({_id: sce});
+    return doc;
   }
 });
 
