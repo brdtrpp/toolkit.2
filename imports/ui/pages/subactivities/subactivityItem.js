@@ -24,5 +24,13 @@ Template.subactivityItem.events({
   "click .delete-subactivity": function(event, template){
     var doc = this;
     Meteor.call('deleteSubactivity', doc);
+  },
+
+  "click .edit-subactivity": function(){
+    $('#subactivityUpdateModal').modal('show')
+  },
+
+  "click .subId": function(){
+    Session.set('sub', this._id);
   }
 });

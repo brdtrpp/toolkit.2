@@ -20,5 +20,17 @@ AutoForm.hooks({
    },
    beginSubmit: function() {},
    endSubmit: function() {}
-  }
+ },
+
+ updateSubactivityForm:{
+   onSuccess: function(update, result) {
+     $('#subactivityUpdateModal').modal('hide');
+     var sub = Session.get('sub');
+     var act = Subactivities.findOne(sub).activity;
+     Meteor.call('updateActivity', act);
+     Bert.alert('Subactivity Successfully Updated', 'success');
+   },
+   beginSubmit: function() {},
+   endSubmit: function() {}
+ }
 });

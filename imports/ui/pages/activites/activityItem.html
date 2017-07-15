@@ -18,11 +18,12 @@
     </div>
     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
       <div class="panel-body">
-
+        <!-- List group -->
+        <ul class="list-group">
           {{#each subactivity}}
             {{> subactivityItem}}
           {{/each}}
-
+        </ul>
         <button class="btn btn-warning btn-block activity" type="button" data-toggle="modal" data-target="#subactivityModal">
           Add a Subactivity to {{name}}
         </button>
