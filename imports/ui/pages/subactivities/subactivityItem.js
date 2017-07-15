@@ -12,6 +12,14 @@ Template.subactivityItem.helpers({
   destroyed: function(){
 
   },
+
+  dt: function(){
+    if (this.downtime){
+      return "Yes"
+    } else {
+      return "No"
+    }
+  }
 });
 
 Template.subactivityItem.events({
@@ -27,10 +35,7 @@ Template.subactivityItem.events({
   },
 
   "click .edit-subactivity": function(){
-    $('#subactivityUpdateModal').modal('show')
-  },
-
-  "click .subId": function(){
     Session.set('sub', this._id);
-  }
+    $('#subactivityUpdateModal').modal('show');
+  },
 });

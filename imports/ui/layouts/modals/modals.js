@@ -15,6 +15,12 @@ Template.modals.helpers({
     var sub = Session.get('sub');
     var doc = Subactivities.findOne(sub);
     return doc;
+  },
+
+  actId: function(){
+    var act = Session.get('act');
+    var doc = Activities.findOne(act);
+    return doc;
   }
 });
 

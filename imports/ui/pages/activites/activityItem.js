@@ -29,6 +29,10 @@ Template.activityItem.events({
   },
   "click .activity": function(event, template){
     Session.set('act', this._id);
+  },
+  "click .edit-activity": function() {
+    Session.set('act', this._id);
+    $('#activityUpdateModal').modal('show');
   }
 });
 

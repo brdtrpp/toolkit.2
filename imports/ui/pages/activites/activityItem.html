@@ -8,9 +8,9 @@
             <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span>
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
-              <li><a href="#" class="clone-activity"><span class="glyphicon glyphicon-repeat"></span> Clone</a></li>
-              <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit</a></li>
-              <li><a href="#" class="delete-activity"><span class="glyphicon glyphicon-trash"></span> Delete</a></li>
+              <li><a href="#" class="clone-activity"><span class="glyphicon glyphicon-repeat"></span> Clone Activity</a></li>
+              <li><a href="#" class="edit-activity"><span class="glyphicon glyphicon-pencil"></span> Edit Activity</a></li>
+              <li><a href="#" class="delete-activity"><span class="glyphicon glyphicon-trash"></span> Delete Activity</a></li>
             </ul>
           </div>
         </div>
@@ -18,6 +18,15 @@
     </div>
     <div id="collapse{{_id}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="heading{{_id}}">
       <div class="panel-body">
+        <div class="row">
+          <div class="col-md-6">
+            Number of Occurances: {{times}}
+          </div>
+          <div class="col-md-6">
+            Downtime Percentage: {{percent}}%
+          </div>
+        </div>
+
         <!-- List group -->
         <ul class="list-group">
           {{#each subactivity}}

@@ -24,6 +24,31 @@
     </div>
   </div>
 
+  <!-- Activity Update Modal -->
+  <div class="modal fade" id="activityUpdateModal" tabindex="-1" role="dialog" aria-labelledby="activityUpdateModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="activityUpdateModal">Update Activity</h4>
+        </div>
+        {{#autoForm collection="Activities" doc=actId id="updateActivitesForm" type="update"}}
+          <div class="modal-body">
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='percent'}}
+              {{> afQuickField name='times'}}
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update Activity</button>
+          </div>
+        {{/autoForm}}
+      </div>
+    </div>
+  </div>
+
   <!-- Process Insert Modal -->
   <div class="modal fade" id="processModal" tabindex="-1" role="dialog" aria-labelledby="processModal">
     <div class="modal-dialog" role="document">
@@ -123,7 +148,7 @@
         <div class="modal-content">
           <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="subactivityUpdateModal">Add Subactivity</h4>
+            <h4 class="modal-title" id="subactivityUpdateModal">Update Subactivity</h4>
           </div>
           {{#autoForm collection="Subactivities" doc=subactivityId id="updateSubactivityForm" type="update"}}
             <div class="modal-body">

@@ -9,7 +9,7 @@
             </a>
             <ul class="dropdown-menu dropdown-menu-right">
               <li><a href="#" class="clone-subactivity" role='button'><span class="glyphicon glyphicon-repeat"></span> Clone Subactivity</a></li>
-              <li><a href="#" class='edit-subactivity subId'><span class="glyphicon glyphicon-pencil" role='button'></span> Edit Subactivity</a></li>
+              <li><a href="#" class='edit-subactivity'><span class="glyphicon glyphicon-pencil" role='button'></span> Edit Subactivity</a></li>
               <li><a href="#" class="delete-subactivity" role='button'><span class="glyphicon glyphicon-trash"></span> Delete Subactivity</a></li>
             </ul>
           </div>
@@ -19,7 +19,13 @@
 
     <div class="row">
       <div class="col-md-12">
-
+        <p class="list-group-item-text">Duration: {{duration}}</p>
+        <p class="list-group-item-text">Causes Downtime: {{dt}}</p>
+        <p class="list-group-item-text">Rate: {{rate}}</p>
+        <p class="list-group-item-text">People: {{people}}</p>
+        <p class="list-group-item-text">Consumables: {{consumable}}</p>
+        <p class="list-group-item-text">Cost of Items: {{itemCost}}</p>
+        <p class="list-group-item-text"># of Items: {{itemNum}}</p>
       </div>
     </div>
   </li>

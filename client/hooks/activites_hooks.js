@@ -12,7 +12,9 @@ AutoForm.hooks({
    onSuccess: function(insert, result) {
      Bert.alert('Activity Successfully Created', 'success');
      $('#activityModal').modal('hide');
-     AutoForm.resetForm(insertActivitesForm);
+     var actId = Session.get('act');
+     var act = Activities.findOne(actId).scenario;
+     Meteor.call('updateScenario', act);
    },
    onError: function(insert, result){
      console.log(result);
@@ -20,5 +22,14 @@ AutoForm.hooks({
    },
    beginSubmit: function() {},
    endSubmit: function() {}
-  }
+ },
+ updateActivitesForm:{
+   onSuccess:function(update, result){
+     Bert.alert('Update Successfully Created', 'success');
+     $('#activityUpdateModal').modal('hide');
+     var actId = Session.get('act');
+     var act = Activities.findOne(actId).scenario;
+     Meteor.call('updateScenario', act);
+   }
+ }
 });
