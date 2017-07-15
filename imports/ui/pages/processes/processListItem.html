@@ -1,15 +1,17 @@
 <template name="processListItem">
-  <a href="/processes/{{_id}}"><li class="list-group-item" role="button"><span>{{name}}</span>
-  <div class='pull-right'>
-    <div class="btn-group">
-      <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span>
-      </a>
-      <ul class="dropdown-menu dropdown-menu-right">
-        <li><a href="#" class="clone-process"><span class="glyphicon glyphicon-repeat"></span> Clone Process</a></li>
-        <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit Process</a></li>
-        <li><a href="#" class="delete-process"><span class="glyphicon glyphicon-trash"></span> Delete Process</a></li>
-      </ul>
-    </div>
-  </div>
-</li></a>
+  <a href="/processes/{{_id}}">
+    <li class="list-group-item" role="button"><span>{{name}}</span>
+      <div class='pull-right'>
+        <div class="btn-group">
+          <a type="button" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><span class="glyphicon glyphicon-option-vertical"></span>
+          </a>
+          <ul class="dropdown-menu dropdown-menu-right">
+            <li><a href="#" class="clone-process"><span class="glyphicon glyphicon-repeat"></span> Clone Process</a></li>
+            <li><a href="#"><span class="glyphicon glyphicon-pencil"></span> Edit Process</a></li>
+            <li><a href="#" class="delete-process"><span class="glyphicon glyphicon-trash"></span> Delete Process</a></li>
+          </ul>
+        </div>
+      </div>
+    </li>
+  </a>
 </template>
