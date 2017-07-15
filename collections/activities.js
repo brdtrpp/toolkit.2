@@ -58,10 +58,16 @@ ActivitiesSchema = new SimpleSchema({
       function getSum(total, num){
         return total + num;
       }
-      if (sumArray == 0) {
+      if(!this.field('times').isSet){
+        var actTimes = Activities.findOne(this.docId).times;
+        var sumed = sumArray.reduce(getSum);
+        return sumed * actTimes;
+      } else if (sumArray == 0) {
         return 0;
       } else {
-        return sumArray.reduce(getSum);
+        var sumed = sumArray.reduce(getSum);
+        var times = this.field('times').value;
+        return sumed * times;
       }
     }
   }

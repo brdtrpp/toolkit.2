@@ -35,7 +35,9 @@ Template.subactivityItem.events({
   },
 
   "click .edit-subactivity": function(){
+    var actId = Subactivities.findOne(this._id).activity;
     Session.set('sub', this._id);
+    Session.set('act', actId);
     $('#subactivityUpdateModal').modal('show');
   },
 });
