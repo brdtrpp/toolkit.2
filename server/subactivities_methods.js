@@ -14,6 +14,7 @@ Meteor.methods({
     });
     Meteor.call('updateActivity', actId);
   },
+
   deleteSubactivity: function(doc){
     var actId = Subactivities.findOne({_id: doc._id}).activity;
     Subactivities.remove({_id: doc._id});

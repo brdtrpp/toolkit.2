@@ -1,11 +1,12 @@
 Meteor.methods({
   deleteActivity: function(doc){
+    var sceId = doc.scenario;
     Activities.remove({_id: doc._id});
     var subs = Subactivities.find({activity: doc._id}).fetch();
     _.forEach(subs, function(sub){
       Meteor.call('deleteSubactivity', sub);
     });
-    Meteor.call('updateScenario', doc.scenario);
+    Meteor.call('updateScenario', sceId);
   },
 
   cloneActivity: function(doc, sceId){
@@ -20,7 +21,6 @@ Meteor.methods({
     var subs = Subactivities.find({activity: doc._id}).fetch();
     _.forEach(subs, function(sub){
       Meteor.call('cloneSubactivity', sub, actId);
-    })
-
+    });
   },
 });

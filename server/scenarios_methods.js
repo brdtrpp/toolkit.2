@@ -19,7 +19,7 @@ Meteor.methods({
     _.forEach(acts, function(act){
       Meteor.call('cloneActivity', act, sceId);
     });
-
+    //Update Scenario after cloning Scenario for reassurance of math
     Meteor.call('updateScenario', sceId);
   }
 });

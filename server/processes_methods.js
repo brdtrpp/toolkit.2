@@ -6,7 +6,9 @@ Meteor.methods({
       Meteor.call('deleteScenario', sce._id)
     });
   },
-  cloneProcess: function(){
-    console.log('Process Clone Called');
+  cloneProcess: function(doc){
+    var proId = Processes.insert({
+      
+    });
   }
 })
