@@ -20,4 +20,19 @@ Meteor.methods({
     Subactivities.remove({_id: doc._id});
     Meteor.call('updateActivity', actId);
   },
+
+  templateSubactivity: function(doc, actId){
+    Subactivities.insert({
+      activity: actId,
+      consumable: 0,
+      downtime: false,
+      duration: 0,
+      itemCost: 0,
+      itemNum: 0,
+      name: doc.name,
+      people: 0,
+      rate: 0,
+      rollup: 0,
+    });
+  }
 });

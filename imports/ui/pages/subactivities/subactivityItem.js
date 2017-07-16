@@ -28,9 +28,7 @@ Template.subactivityItem.helpers({
 
 Template.subactivityItem.events({
   "click .clone-subactivity": function(event, template){
-    var doc = this;
-    var actId = this.activity;
-    Meteor.call('cloneSubactivity', doc, actId);
+    Meteor.call('cloneSubactivity', this, this.activity);
   },
 
   "click .delete-subactivity": function(event, template){
@@ -44,4 +42,8 @@ Template.subactivityItem.events({
     Session.set('act', actId);
     $('#subactivityUpdateModal').modal('show');
   },
+
+  "click .template-subactivity": function(){
+    Meteor.call('templateSubactivity', this, this.activity);
+  }
 });

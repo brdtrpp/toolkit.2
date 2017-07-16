@@ -24,12 +24,10 @@ Template.activityItem.helpers({
 
 Template.activityItem.events({
   "click .delete-activity": function(event, template){
-    var doc = this;
-    Meteor.call("deleteActivity", doc);
+    Meteor.call("deleteActivity", this);
   },
   "click .clone-activity": function(event, template){
-    var sceId = this.scenario;
-    Meteor.call("cloneActivity", this, sceId);
+    Meteor.call("cloneActivity", this, this.scenario);
   },
   "click .activity": function(event, template){
     Session.set('act', this._id);
@@ -37,6 +35,9 @@ Template.activityItem.events({
   "click .edit-activity": function() {
     Session.set('act', this._id);
     $('#activityUpdateModal').modal('show');
+  },
+  "click .template-activity": function(){
+    Meteor.call("templateActivity", this, this.scenario);
   }
 });
 

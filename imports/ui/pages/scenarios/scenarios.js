@@ -31,6 +31,9 @@ Template.scenario.events({
   'click .edit-scenario': function(){
     Session.set('scenario', this._id);
     $('#scenarioUpdateModal').modal('show');
+  },
+  'click .template-scenario': function(){
+    Meteor.call('templateScenario', this);
   }
 });
 
