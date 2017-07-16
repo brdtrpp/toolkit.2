@@ -1,5 +1,6 @@
 import { IronRouter } from 'meteor/iron:router';
 import { AccountsTemplates } from 'meteor/useraccounts:core';
+import '../../startup/client/user_account.js';
 
 // Import needed templates
 import '../../ui/layouts/body/body.js';
