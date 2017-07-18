@@ -36,7 +36,16 @@ ActivitiesSchema = new SimpleSchema({
 
   times: {
     type: Number,
-    label: "What is the # of times this activity occurs per TIME Period?"
+    label: function(){
+      if(Meteor.isClient){
+        var pro = Session.get('process');
+        var timeNum = Processes.findOne(pro).timeperiod.duration;
+        var timeType = Processes.findOne(pro).timeperiod.type;
+        var res = "What is the number of times this activity occurs per " + timeNum + " " + timeType + "?";
+        return res;
+      }
+
+    }
   },
 
   percent: {

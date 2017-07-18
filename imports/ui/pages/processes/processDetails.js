@@ -145,6 +145,10 @@ Template.processDetails.events({
   },
   'click .bar': function(){
     Session.set('chartType', 'bar');
+  },
+  'click .cloneApp': function(){
+    var app = Session.get('app');
+    Meteor.call('cloneApplication', this, app);
   }
 });
 

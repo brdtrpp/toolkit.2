@@ -8,7 +8,16 @@ Meteor.methods({
   },
   cloneProcess: function(doc){
     var proId = Processes.insert({
-      
+
     });
+  },
+  cloneApplication: function(pro, app){
+    Processes.update(pro._id, {
+      $push: { app: {
+        name: app + " - clone"
+      }}
+    });
+    console.log(pro);
+    console.log(app);
   }
 })
