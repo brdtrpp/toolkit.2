@@ -1,6 +1,7 @@
 import './processDetails.html';
 import '/imports/ui/pages/scenarios/scenarios.js'
 import '/imports/ui/pages/app/application.js'
+import '/imports/ui/reports/docx.js'
 
 
 Template.processDetails.helpers({
