@@ -72,7 +72,6 @@
             </div>
 
             {{> afQuickField name='app'}}
-            <!-- {{> afQuickField name='drivers'}} -->
           </fieldset>
           </div>
           <div class="modal-footer">
@@ -168,34 +167,34 @@
   </div>
 
 
-    <!-- Subactivities Insert Modal -->
-    <div class="modal fade" id="subactivityUpdateModal" tabindex="-1" role="dialog" aria-labelledby="subactivityUpdateModal">
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-            <h4 class="modal-title" id="subactivityUpdateModal">Update Subactivity</h4>
-          </div>
-          {{#autoForm collection="Subactivities" doc=subactivityId id="updateSubactivityForm" type="update"}}
-            <div class="modal-body">
-
-              <fieldset>
-                {{> afQuickField name='name'}}
-                {{> afQuickField name='duration'}}
-                {{> afQuickField name='downtime'}}
-                {{> afQuickField name='rate'}}
-                {{> afQuickField name='people'}}
-                {{> afQuickField name='consumable'}}
-                {{> afQuickField name='itemCost'}}
-                {{> afQuickField name='itemNum'}}
-              </fieldset>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-primary">Update Subactivity</button>
-            </div>
-          {{/autoForm}}
+  <!-- Subactivities Insert Modal -->
+  <div class="modal fade" id="subactivityUpdateModal" tabindex="-1" role="dialog" aria-labelledby="subactivityUpdateModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="subactivityUpdateModal">Update Subactivity</h4>
         </div>
+        {{#autoForm collection="Subactivities" doc=subactivityId id="updateSubactivityForm" type="update"}}
+          <div class="modal-body">
+
+            <fieldset>
+              {{> afQuickField name='name'}}
+              {{> afQuickField name='duration'}}
+              {{> afQuickField name='downtime'}}
+              {{> afQuickField name='rate'}}
+              {{> afQuickField name='people'}}
+              {{> afQuickField name='consumable'}}
+              {{> afQuickField name='itemCost'}}
+              {{> afQuickField name='itemNum'}}
+            </fieldset>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-primary">Update Subactivity</button>
+          </div>
+        {{/autoForm}}
       </div>
     </div>
+  </div>
 </template>

@@ -18,13 +18,14 @@ Meteor.methods({
       return apps._id === app;
     });
     var sces = Scenarios.find({application: app, process: pro}).fetch();
-    console.log(sces);
+
     _.forEach(sces, function(sce){
       Meteor.call('deleteScenario', sce._id);
     });
 
     Processes.update(pro, {$set: {app: process}});
   },
+
   cloneApplication: function(pro, app){
     var named = app.name + " - clone"
 
@@ -33,10 +34,14 @@ Meteor.methods({
         name: named
       }}
     });
-    //
-    // var sces = Scenarios.find({process: pro._id, application: app}).fetch();
-    // _.forEach(sces, function(sce){
-    //   Meteor.call('cloneScenario', sce)
-    // });
+
+    var process = Processes.findOne(pro).app.pop();
+    console.log(process)
+
+    var sces = Scenarios.find({process: pro, application: app._id}).fetch();
+    _.forEach(sces, function(sce){
+      sce.application = process._id;
+      Meteor.call('cloneScenario', sce);
+    });
   }
 })

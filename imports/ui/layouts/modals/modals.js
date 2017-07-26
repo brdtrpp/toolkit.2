@@ -1,16 +1,6 @@
 import './modals.html'
 
 Template.modals.helpers({
-  create: function(){
-
-  },
-  rendered: function(){
-
-  },
-  destroyed: function(){
-
-  },
-
   subactivityId: function(){
     var sub = Session.get('sub');
     var doc = Subactivities.findOne(sub);
@@ -25,13 +15,7 @@ Template.modals.helpers({
 
   sceID: function(){
     var sce = Session.get('scenario');
-    var doc = Scenarios.findOne({_id: sce});
+    var doc = Scenarios.findOne(sce);
     return doc;
-  }
-});
-
-Template.modals.events({
-  "click #foo": function(event, template){
-
   }
 });

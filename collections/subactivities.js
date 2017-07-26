@@ -88,7 +88,7 @@ SubactivitiesSchema = new SimpleSchema({
       omit: true,
     },
     autoValue: function(){
-      if (Meteor.isClient && !this.isSet) {
+      if (Meteor.isClient) {
         let p = Session.get('process');
         let pdt = Processes.findOne({_id: p});
         if (this.field('downtime').value === true) {

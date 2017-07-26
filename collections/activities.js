@@ -39,12 +39,16 @@ ActivitiesSchema = new SimpleSchema({
     label: function(){
       if(Meteor.isClient && !this.isSet){
         var pro = Session.get('process');
-        var timeNum = Processes.findOne(pro).timeperiod.duration;
-        var timeType = Processes.findOne(pro).timeperiod.type;
-        var res = "What is the number of times this activity occurs per " + timeNum + " " + timeType + "?";
-        return res;
+        var process = Processes.findOne(pro);
+        if (process == undefined) {
+          return "wait"
+        } else {
+          var timeNum = process.timeperiod.duration;
+          var timeType = process.timeperiod.type;
+          var res = "What is the number of times this activity occurs per " + timeNum + " " + timeType + "?";
+          return res;
+        }
       }
-
     }
   },
 
