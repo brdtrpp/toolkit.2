@@ -37,7 +37,7 @@ ActivitiesSchema = new SimpleSchema({
   times: {
     type: Number,
     label: function(){
-      if(Meteor.isClient){
+      if(Meteor.isClient && !this.isSet){
         var pro = Session.get('process');
         var timeNum = Processes.findOne(pro).timeperiod.duration;
         var timeType = Processes.findOne(pro).timeperiod.type;
@@ -50,7 +50,10 @@ ActivitiesSchema = new SimpleSchema({
 
   percent: {
     type: Number,
-    label: "What % of the time does the occurance of this activity cause downtime?"
+    label: "What % of the time does the occurance of this activity cause downtime?",
+    min: 0,
+    max: 100,
+    defaultValue: 0
   },
 
   rollup: {

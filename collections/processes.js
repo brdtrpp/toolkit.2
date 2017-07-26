@@ -1,6 +1,7 @@
 import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 Processes = new Mongo.Collection("processes");
+import { Random } from 'meteor/random'
 
 if (Meteor.isServer) {
  Meteor.publish('processes', function() {
@@ -33,6 +34,18 @@ ProcessSchema = new SimpleSchema({
     type: Object
   },
 
+  "app.$._id": {
+    type: String,
+    autoform: {
+      omit: true
+    },
+    autoValue: function(){
+      if (!this.isSet){
+        return Random.id(17);
+      }
+
+    }
+  },
   "app.$.name": {
     type: String,
   },

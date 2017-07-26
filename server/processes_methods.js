@@ -11,13 +11,32 @@ Meteor.methods({
 
     });
   },
+  deleteApplication: function(pro, app){
+
+    var process = Processes.findOne(pro).app;
+    process = _.reject(process, function(apps) {
+      return apps._id === app;
+    });
+    var sces = Scenarios.find({application: app, process: pro}).fetch();
+    console.log(sces);
+    _.forEach(sces, function(sce){
+      Meteor.call('deleteScenario', sce._id);
+    });
+
+    Processes.update(pro, {$set: {app: process}});
+  },
   cloneApplication: function(pro, app){
-    Processes.update(pro._id, {
+    var named = app.name + " - clone"
+
+    Processes.update(pro, {
       $push: { app: {
-        name: app + " - clone"
+        name: named
       }}
     });
-    console.log(pro);
-    console.log(app);
+    //
+    // var sces = Scenarios.find({process: pro._id, application: app}).fetch();
+    // _.forEach(sces, function(sce){
+    //   Meteor.call('cloneScenario', sce)
+    // });
   }
 })

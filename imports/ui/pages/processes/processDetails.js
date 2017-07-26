@@ -16,13 +16,13 @@ Template.processDetails.helpers({
   },
   scenarios: function(){
     var pro = this._id;
-    var app = Session.get('app');
+    var app = Session.get('appId');
     return Scenarios.find({process: pro, application: app}).fetch();
   },
   topGenresChart: function(){
     var chartType = Session.get('chartType');
     var pro = this._id;
-    var app = Session.get('app');
+    var app = Session.get('appId');
     var sces = Scenarios.find({process: pro, application: app}).fetch();
     var chartInfo = [];
     var cats = [];
@@ -146,13 +146,9 @@ Template.processDetails.events({
   'click .bar': function(){
     Session.set('chartType', 'bar');
   },
-  'click .cloneApp': function(){
-    var app = Session.get('app');
-    Meteor.call('cloneApplication', this, app);
-  }
 });
 
 Template.processDetails.onRendered( function(){
   Session.set('process', this.data._id);
-  Session.set('app', this.data.app[0].name);
+  Session.set('appId', this.data.app[0]._id);
 });

@@ -12,16 +12,27 @@ Template.application.helpers({
 
   },
   active: function(){
-    if (Session.equals("app", this.name)){
-      return "active"
+    if (Session.equals("appId", this._id)){
+      return "primary"
     } else {
-      return "";
+      return "default";
     }
   }
 });
 
 Template.application.events({
   'click .app': function(){
-    Session.set('app', this.name);
+    Session.set('appId', this._id);
+    Session.set('app', this);
   },
+  'click .clone-application': function(){
+    var app = Session.get('app');
+    var pro = Session.get('process');
+    Meteor.call('cloneApplication', pro, app);
+  },
+  'click .delete-application': function(){
+    var app = Session.get('appId');
+    var pro = Session.get('process');
+    Meteor.call('deleteApplication', pro, app)
+  }
 });

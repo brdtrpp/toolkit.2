@@ -22,7 +22,7 @@ ScenarioSchema = new SimpleSchema({
       omit: true,
     },
     autoValue: function(){
-      if (Meteor.isClient){
+      if (Meteor.isClient && !this.isSet){
         var process = Session.get('process');
         return process;
       }
@@ -35,8 +35,8 @@ ScenarioSchema = new SimpleSchema({
       omit: true,
     },
     autoValue: function(){
-      if (Meteor.isClient){
-        var app = Session.get('app');
+      if (Meteor.isClient && !this.isSet){
+        var app = Session.get('appId');
         return app;
       }
     }

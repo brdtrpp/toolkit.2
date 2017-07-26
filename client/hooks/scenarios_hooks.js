@@ -14,7 +14,7 @@ AutoForm.hooks({
      AutoForm.resetForm(insertScenarioForm);
    },
    onError: function(insert, result){
-     console.log(result);
+     console.error(result);
      Bert.alert("Somethig went wrong, please check the form again", 'danger');
    },
    beginSubmit: function() {},
