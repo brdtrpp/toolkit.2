@@ -17,5 +17,9 @@ Template.modals.helpers({
     var sce = Session.get('scenario');
     var doc = Scenarios.findOne(sce);
     return doc;
+  },
+
+  applicationSchema: function(){
+    return ApplicationSchema
   }
 });

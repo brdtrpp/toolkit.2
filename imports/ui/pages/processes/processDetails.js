@@ -5,15 +5,6 @@ import '/imports/ui/reports/docx.js'
 
 
 Template.processDetails.helpers({
-  create: function(){
-
-  },
-  rendered: function(){
-
-  },
-  destroyed: function(){
-
-  },
   scenarios: function(){
     var pro = this._id;
     var app = Session.get('appId');
@@ -93,26 +84,26 @@ Template.processDetails.helpers({
       title: {
         text: this.name + "'s Graph"
       },
-      tooltip: {
-        pointFormat: '<b>{point.percentage:.1f}%</b>'
-      },
+
       xAxis: {
         categories: catsFinal,
         crosshair: true
       },
       plotOptions: {
-          // pie: {
-          //   allowPointSelect: true,
-          //   cursor: 'pointer',
-          //   dataLabels: {
-          //     enabled: true,
-          //     format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-          //     style: {
-          //         color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
-          //     },
-          //     connectorColor: 'silver'
-          //   }
-          // },
+
+          series: {
+              dataLabels: {
+                  enabled: true,
+                  align: 'right',
+                  color: '#FFFFFF',
+                  x: -10
+              },
+              pointPadding: 0.1,
+              groupPadding: 0,
+              tooltip: {
+                pointFormat: '<b>${point.y:2f}</b>'
+              },
+          },
           column: {
             pointPadding: 0,
             borderWidth: 0,
@@ -120,7 +111,7 @@ Template.processDetails.helpers({
             shadow: false,
             dataLabels: {
               enabled: true,
-              format: '<b>{point.name}</b>: ${point.rollup:.1f}',
+              format: '<b>${point.y:.2f}</b>',
               style: {
                 color: (Highcharts.theme && Highcharts.theme.contrastTextColor) || 'black'
               },
@@ -146,6 +137,9 @@ Template.processDetails.events({
   'click .bar': function(){
     Session.set('chartType', 'bar');
   },
+  'click .app': function(){
+    // Session.set('appId')
+  }
 });
 
 Template.processDetails.onRendered( function(){

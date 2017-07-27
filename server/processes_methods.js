@@ -43,5 +43,12 @@ Meteor.methods({
       sce.application = process._id;
       Meteor.call('cloneScenario', sce);
     });
+  },
+
+  createApplication: function(doc){
+    Meteor.call('grabProcess', function(result, error){
+      console.log(result);
+    });
+    console.log(doc);
   }
 })

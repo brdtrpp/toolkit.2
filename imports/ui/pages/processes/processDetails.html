@@ -21,12 +21,15 @@
     {{#each app}}
       {{> application}}
     {{/each}}
+    <button type="button" class="btn btn-warning app" data-toggle="modal" data-target="#appModal"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add Application</button>
   <br>
   <br>
 
   {{#each scenarios}}
     {{> scenario}}
   {{/each}}
+
+
   <!-- Button trigger modal -->
   <button type="button" class="btn btn-success btn-block" data-toggle="modal" data-target="#scenarioModal">
     Add Scenario
