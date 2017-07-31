@@ -39,5 +39,6 @@ Template.application.events({
     var app = Session.get('appId');
     var pro = Session.get('process');
     Meteor.call('templateApplication', pro, app);
-  }
+  },
+
 });
