@@ -1,16 +1,34 @@
 Meteor.methods({
   deleteProcess: function(doc){
-    Processes.remove({_id: doc});
+    Processes.remove(doc);
     var sces = Scenarios.find({process: doc}).fetch();
     _.forEach(sces, function(sce){
       Meteor.call('deleteScenario', sce._id)
     });
   },
-  cloneProcess: function(doc){
-    var proId = Processes.insert({
 
+  cloneProcess: function(doc){
+    var newApps = [];
+    _.forEach(doc.app, function(apps){
+      newApps.push({"name": apps.name});
     });
+    console.log(doc)
+    var pro = Processes.insert({
+      name: doc.name + " - clone",
+      downtime: doc.downtime,
+      timeperiod: doc.timeperiod,
+      app: newApps
+    });
+    _.forEach(doc.app, function(apps){
+      var sce = Scenarios.find({process: doc._id, application: apps._id}).fetch();
+      console.log(sce)
+    });
+
+    var pros = Processes.findOne({_id: pro});
+    // console.log(pros)
+    // _.forEach()
   },
+
   deleteApplication: function(pro, app){
 
     var process = Processes.findOne(pro).app;
