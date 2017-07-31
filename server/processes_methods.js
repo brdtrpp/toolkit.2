@@ -17,12 +17,11 @@ Meteor.methods({
     process = _.reject(process, function(apps) {
       return apps._id === app;
     });
-    var sces = Scenarios.find({application: app, process: pro}).fetch();
 
+    var sces = Scenarios.find({application: app, process: pro}).fetch();
     _.forEach(sces, function(sce){
       Meteor.call('deleteScenario', sce._id);
     });
-
     Processes.update(pro, {$set: {app: process}});
   },
 
@@ -36,7 +35,6 @@ Meteor.methods({
     });
 
     var process = Processes.findOne(pro).app.pop();
-    console.log(process)
 
     var sces = Scenarios.find({process: pro, application: app._id}).fetch();
     _.forEach(sces, function(sce){
@@ -45,10 +43,27 @@ Meteor.methods({
     });
   },
 
-  createApplication: function(doc){
-    Meteor.call('grabProcess', function(result, error){
-      console.log(result);
+  templateApplication: function(pro, app){
+    var apps = Processes.findOne(pro).app;
+
+    function findId(id) {
+        return id._id === app;
+    }
+
+    var r = apps.find(findId);
+
+    Processes.update(pro, {
+      $push: { app: {
+        name: r.name + " - template"
+      }}
     });
-    console.log(doc);
+
+    var afterApp = Processes.findOne(pro).app.pop();
+
+    var sces = Scenarios.find({process: pro, application: app}).fetch();
+    _.forEach(sces, function(sce){
+      sce.application = afterApp._id;
+      Meteor.call('templateScenario', sce);
+    });
   }
 })

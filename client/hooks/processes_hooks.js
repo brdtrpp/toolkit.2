@@ -6,13 +6,12 @@ AutoForm.hooks({
     before: {
      insert: function(doc) {
        doc.timeperiod.time = moment.duration(doc.timeperiod.duration, doc.timeperiod.type).asMilliseconds();
-       console.log(doc);
        return doc;
      }
    },
    onSuccess: function(insert, result) {
      Bert.alert('Process Successfully Created', 'success');
-     $('#processModal').modal('hide')
+     $('#processModal').modal('hide');
      AutoForm.resetForm(insertProcessForm);
    },
    onError: function(insert, result){
@@ -21,5 +20,17 @@ AutoForm.hooks({
    },
    beginSubmit: function() {},
    endSubmit: function() {}
-  }
+ },
+
+ applicationForm:{
+   onSuccess: function(insert, result) {
+     Bert.alert('Application Successfully Added', 'success');
+     $('#appModal').modal('hide');
+   },
+   onError: function(insert, result){
+     Bert.alert("Somethig went wrong, please check the form again", 'danger');
+   },
+   beginSubmit: function() {},
+   endSubmit: function() {}
+ }
 });

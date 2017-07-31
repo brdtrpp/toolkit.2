@@ -6,7 +6,7 @@ Meteor.methods({
     _.forEach(subs, function(sub){
       Meteor.call('deleteSubactivity', sub);
     });
-    Meteor.call('updateScenario', sceId);
+    // Meteor.call('updateScenario', sceId);
   },
 
   cloneActivity: function(doc, sceId){

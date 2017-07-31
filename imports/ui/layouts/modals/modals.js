@@ -21,5 +21,11 @@ Template.modals.helpers({
 
   applicationSchema: function(){
     return ApplicationSchema
+  },
+
+  processId: function(){
+    var proId = Session.get('process');
+    var process = Processes.findOne(proId);
+    return process;
   }
 });

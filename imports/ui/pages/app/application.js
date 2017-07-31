@@ -33,6 +33,11 @@ Template.application.events({
   'click .delete-application': function(){
     var app = Session.get('appId');
     var pro = Session.get('process');
-    Meteor.call('deleteApplication', pro, app)
+    Meteor.call('deleteApplication', pro, app);
+  },
+  'click .template-application': function(){
+    var app = Session.get('appId');
+    var pro = Session.get('process');
+    Meteor.call('templateApplication', pro, app);
   }
 });

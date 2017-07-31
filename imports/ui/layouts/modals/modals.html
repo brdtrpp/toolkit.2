@@ -166,7 +166,6 @@
     </div>
   </div>
 
-
   <!-- Subactivities Insert Modal -->
   <div class="modal fade" id="subactivityUpdateModal" tabindex="-1" role="dialog" aria-labelledby="subactivityUpdateModal">
     <div class="modal-dialog" role="document">
@@ -202,19 +201,20 @@
   <div class="modal fade" id="appModal" tabindex="-1" role="dialog" aria-labelledby="appModal">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
+        {{processId}}
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
           <h4 class="modal-title" id="appModal">Add an Application</h4>
         </div>
         <div class="modal-body">
-          {{#autoForm schema=applicationSchema id="applicationForm" type="method" meteormethod="createApplication"}}
+          {{#autoForm collection="Processes" id="applicationForm" doc=processId type="update" }}
             <fieldset>
-              {{> afQuickField name="name"}}
+              {{> afQuickField name="app"}}
             </fieldset>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                <button type="submit" class="btn btn-primary">Add Application</button>
-              </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              <button type="submit" class="btn btn-primary">Add Application</button>
+            </div>
           {{/autoForm}}
         </div>
       </div>
