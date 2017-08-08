@@ -8,25 +8,23 @@ Meteor.methods({
   },
 
   cloneProcess: function(doc){
+    //create a clone of the Process
     var newApps = [];
     _.forEach(doc.app, function(apps){
       newApps.push({"name": apps.name});
     });
-    console.log(doc)
+
     var pro = Processes.insert({
       name: doc.name + " - clone",
       downtime: doc.downtime,
       timeperiod: doc.timeperiod,
       app: newApps
     });
-    _.forEach(doc.app, function(apps){
-      var sce = Scenarios.find({process: doc._id, application: apps._id}).fetch();
-      console.log(sce)
-    });
 
-    var pros = Processes.findOne({_id: pro});
-    // console.log(pros)
-    // _.forEach()
+    _.forEach(doc.app, function())
+
+    console.log(doc.app);
+    console.log(pro);
   },
 
   deleteApplication: function(pro, app){

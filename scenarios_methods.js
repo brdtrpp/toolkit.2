@@ -8,6 +8,7 @@ Meteor.methods({
   },
 
   cloneScenario: function(doc){
+    console.log(doc);
     var sceId = Scenarios.insert({
       name: doc.name + " - clone",
       description: doc.description,
@@ -17,6 +18,7 @@ Meteor.methods({
     });
 
     var acts = Activities.find({scenario: doc._id}).fetch();
+    console.log(acts)
     _.forEach(acts, function(act){
       Meteor.call('cloneActivity', act, sceId);
     });

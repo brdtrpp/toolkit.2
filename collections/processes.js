@@ -60,6 +60,7 @@ ProcessSchema = new SimpleSchema({
     type: String,
     autoform: {
       options: {
+        hour: "Hours",
         day: "Days",
         week: "Weeks",
         month: "Months",
