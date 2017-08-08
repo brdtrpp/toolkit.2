@@ -21,7 +21,7 @@ Meteor.methods({
       app: newApps
     });
 
-    _.forEach(doc.app, function())
+    // _.forEach(doc.app, function())
 
     console.log(doc.app);
     console.log(pro);
