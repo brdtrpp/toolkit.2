@@ -2,17 +2,27 @@ import SimpleSchema from 'simpl-schema';
 SimpleSchema.extendOptions(['autoform']);
 
 UserSchema = new SimpleSchema({
-    username: {
-      type: String,
-      // For accounts-password, either emails or username is required, but not both. It is OK to make this
-      // optional here because the accounts-password package does its own validation.
-      // Third-party login packages may not require either. Adjust this schema as necessary for your usage.
-      optional: true
+    // username: {
+    //   type: String,
+    //   // For accounts-password, either emails or username is required, but not both. It is OK to make this
+    //   // optional here because the accounts-password package does its own validation.
+    //   // Third-party login packages may not require either. Adjust this schema as necessary for your usage.
+    //   optional: true
+    // },
+    services: Object,
+    'services.password': Object,
+    'services.password.bcrypt': { type: String, label: "Password" },
+    'services.resume': { type: Object, blackbox: true, optional: true },
+    profile: {
+      type: Object()
     },
-    firstName: {
+    'profile.firstName': {
       type: String,
     },
-    lastName: {
+    'profile.lastName': {
+      type: String,
+    },
+    'profile.company': {
       type: String,
     },
     emails: {
@@ -22,8 +32,32 @@ UserSchema = new SimpleSchema({
       // Third-party login packages may not require either. Adjust this schema as necessary for your usage.
       optional: true
     },
-    company: {
+
+  customerId: {
+    type: String,
+    autoValue: function() {
+      if (this.isInsert) {
+        var userInfo = {
+          des:this.field("profile.company"),
+        };
+        return Meteor.call('createCustomer', userInfo).id;
+
+      } else {
+        this.unset();  // Prevent user from supplying their own value
+      }
+    },
+    autoform: {
+      omit: true
+    }
+  },
+    status: {
       type: String,
+      autoValue: function() {
+        if (this.isInsert) {
+          return "unpaid";
+        }
+      }
+
     },
     "emails.$": {
         type: Object
@@ -37,4 +71,5 @@ UserSchema = new SimpleSchema({
     },
 });
 
-// Meteor.users.attachSchema(UserSchema);
+
+Meteor.users.attachSchema(UserSchema);

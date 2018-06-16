@@ -1,0 +1,9 @@
+{
+  "public": {
+    "stripe": "pk_test_RocJBJ6UhrOt04N8wjX5Kqyc",
+    "environ": "development"
+  },
+  "private": {
+    "stripe": "sk_test_GyS8Ovpy1BHVtuPZfoOVnoJG"
+  }
+}
