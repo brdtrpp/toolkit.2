@@ -6,6 +6,7 @@ Meteor.methods({
     try {
       return stripeCustomersCreate({
         description: userInfo.des.value,
+        email: userInfo.email.value[0].address
       });
     }catch(error){
       throw new Meteor.Error("StripeAPIFailure", error.message);
@@ -23,18 +24,5 @@ Meteor.methods({
     });
   },
 
-  createCard: function() {
-    var Stripe = StripeAPI('sk_test_GyS8Ovpy1BHVtuPZfoOVnoJG');
-    var stripeTokenCreate = Meteor.wrapAsync(Stripe.tokens.create,Stripe.tokens);
-    stripeTokenCreate({
-      card: {
-        "number": '4242424242424242',
-        "exp_month": 12,
-        "exp_year": 2019,
-        "cvc": '123'
-      }
-    }, function(err, token) {
-      // asynchronously called
-    });
-  }
+
 });

@@ -27,9 +27,9 @@ AccountsTemplates.configure({
     // privacyUrl: 'privacy',
     termsUrl: 'terms',
 
-    // // Redirects
-    // homeRoutePath: '/home',
-    // redirectTimeout: 4000,
+    // Redirects
+    homeRoutePath: '/home',
+    redirectTimeout: 4000,
 
     // // Hooks
     // onLogoutHook: myLogoutFunc,

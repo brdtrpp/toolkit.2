@@ -38,7 +38,8 @@ UserSchema = new SimpleSchema({
     autoValue: function() {
       if (this.isInsert) {
         var userInfo = {
-          des:this.field("profile.company"),
+          des: this.field("profile.company"),
+          email: this.field("emails"),
         };
         return Meteor.call('createCustomer', userInfo).id;
 
@@ -50,25 +51,32 @@ UserSchema = new SimpleSchema({
       omit: true
     }
   },
-    status: {
-      type: String,
-      autoValue: function() {
-        if (this.isInsert) {
-          return "unpaid";
-        }
-      }
+  card: {
+    type: Boolean,
+    autoValue: function(){
 
     },
-    "emails.$": {
-        type: Object
-    },
-    "emails.$.address": {
-        type: String,
-        regEx: SimpleSchema.RegEx.Email
-    },
-    "emails.$.verified": {
-        type: Boolean
-    },
+    optional: true
+  },
+  status: {
+    type: String,
+    autoValue: function() {
+      if (this.isInsert) {
+        return "unsubed";
+      }
+    }
+
+  },
+  "emails.$": {
+      type: Object
+  },
+  "emails.$.address": {
+      type: String,
+      regEx: SimpleSchema.RegEx.Email
+  },
+  "emails.$.verified": {
+      type: Boolean
+  },
 });
 
 
