@@ -1,7 +1,7 @@
 Meteor.methods({
   createCustomer : function(userInfo) {
-    var Stripe = StripeAPI('sk_test_GyS8Ovpy1BHVtuPZfoOVnoJG');
-    var stripeCustomersCreate = Meteor.wrapAsync(Stripe.customers.create,Stripe.customers);
+    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripeCustomersCreate = Meteor.wrapAsync(stripe.customers.create,stripe.customers);
 
     try {
       return stripeCustomersCreate({
@@ -13,16 +13,21 @@ Meteor.methods({
     }
   },
 
-  createCustomerS2: function() {
-    Meteor.call('createCustomerS2', function(error, result) {
-      if (error) {
-        console.log(error);
-      } else {
-        let c = result.id;
-        return c;
-      }
-    });
-  },
+  checkSubs: function() {
+    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripeGetCustomer = Meteor.wrapAsync(stripe.customers.retrieve,stripe.customers);
+    const id = Meteor.user().customerId;
+
+    try {
+      stripeGetCustomer(
+        id,
+        function(error, customer){
+        }
+      );
+    } catch(error) {
+      throw new Meteor.Error("StripeAPIFailure", error.message);
+    }
+  }
 
 
 });

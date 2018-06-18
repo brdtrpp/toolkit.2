@@ -1,72 +1,28 @@
 <template name="App_home">
 
 {{#if currentUser}}
-  <div class="row">
-		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-			<!-- PRICE ITEM -->
-			<div class="panel price panel-red">
-				<div class="panel-heading  text-center">
-				<h3>PRO PLAN</h3>
-				</div>
-				<div class="panel-body text-center">
-					<p class="lead" style="font-size:40px"><strong>$10 / month</strong></p>
-				</div>
-				<ul class="list-group list-group-flush text-center">
-					<li class="list-group-item"><i class="icon-ok text-danger"></i> Personal use</li>
-					<li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
-					<li class="list-group-item"><i class="icon-ok text-danger"></i> 27/7 support</li>
-				</ul>
-				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-danger plan1" href="#">BUY NOW!</a>
-				</div>
-			</div>
-			<!-- /PRICE ITEM -->
+    <div class="row">
+      {{#each plans}}
+        <div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
+  			<!-- PRICE ITEM -->
+  			<div class="panel price panel-{{highlight}}">
+  				<div class="panel-heading text-center">
+  				<h3>{{name}}</h3>
+  				</div>
+  				<div class="panel-body text-center">
+  					<p class="lead" style="font-size:40px"><strong>{{price}}</strong></p>
+  				</div>
+  				<ul class="list-group list-group-flush text-center">
+  					<li class="list-group-item"><i class="icon-ok text-danger"></i> {{trial}}</li>
+  					<li class="list-group-item"><i class="icon-ok text-danger"></i> Unlimited projects</li>
+  				</ul>
+  				<div class="panel-footer">
+  					<a class="btn btn-lg btn-block btn-success plan" href="#">Regiser Now!!</a>
+  				</div>
+  			</div>
+  		</div>
 
-		</div>
-
-		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-			<!-- PRICE ITEM -->
-			<div class="panel price panel-blue">
-				<div class="panel-heading arrow_box text-center">
-				<h3>DEV PLAN</h3>
-				</div>
-				<div class="panel-body text-center">
-					<p class="lead" style="font-size:40px"><strong>$20 / month</strong></p>
-				</div>
-				<ul class="list-group list-group-flush text-center">
-					<li class="list-group-item"><i class="icon-ok text-info"></i> Personal use</li>
-					<li class="list-group-item"><i class="icon-ok text-info"></i> Unlimited projects</li>
-					<li class="list-group-item"><i class="icon-ok text-info"></i> 27/7 support</li>
-				</ul>
-				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-info pane2">BUY NOW!</a>
-				</div>
-			</div>
-			<!-- /PRICE ITEM -->
-
-		</div>
-		<div class="col-xs-6 col-sm-6 col-md-4 col-lg-4">
-			<!-- PRICE ITEM -->
-			<div class="panel price panel-green">
-				<div class="panel-heading arrow_box text-center">
-				<h3>FREE PLAN</h3>
-				</div>
-				<div class="panel-body text-center">
-					<p class="lead" style="font-size:40px"><strong>$0 / month</strong></p>
-				</div>
-				<ul class="list-group list-group-flush text-center">
-					<li class="list-group-item"><i class="icon-ok text-success"></i> Personal use</li>
-					<li class="list-group-item"><i class="icon-ok text-success"></i> Unlimited projects</li>
-					<li class="list-group-item"><i class="icon-ok text-success"></i> 27/7 support</li>
-				</ul>
-				<div class="panel-footer">
-					<a class="btn btn-lg btn-block btn-success plan3">BUY NOW!</a>
-				</div>
-			</div>
-			<!-- /PRICE ITEM -->
-
-		</div>
-
+    {{/each}}
 	</div>
 
   <div class='container'>
@@ -75,7 +31,7 @@
         <form action="/charge" method="post" id="payment-form">
           <div class="form-row">
             <label for="card-element">
-              Credit or debit card
+              <h3>Credit or debit card</h3>
             </label>
             <div id="card-element">
               <!-- A Stripe Element will be inserted here. -->
@@ -83,7 +39,8 @@
             <!-- Used to display form errors. -->
             <div id="card-errors" role="alert"></div>
           </div>
-          <button>Submit Payment</button>
+         <br>
+          <button class="btn btn-block btn-info">Submit Payment</button>
         </form>
       </div>
     </div>

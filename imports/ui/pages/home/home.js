@@ -1,22 +1,39 @@
 import './home.html';
 import '../../components/navbar/navbar.js';
 
-// Template.App_home.helpers({
-//   setPlan: function(){
-//     Session.set
-//   }
-// });
+Template.App_home.helpers({
+  plans: function(){
+    var plans = [
+      {id: Meteor.settings.public.plans.nonprofit,
+        name: "Non-Profit TCO Toolkit Monthly Enterprise License",
+        trial: "15 days",
+        price: "$49.00/month"},
+      {id: Meteor.settings.public.plans.commAnnual,
+        name: "Commercial TCO Toolkit Annual Enterprise License",
+        trial: "0 days",
+        price: "$758.00/year"},
+      {id: Meteor.settings.public.plans.commMonthly,
+        name: "TCO Toolkit Monthly Enterprise License",
+        trial: "30 days",
+        price: "$79.00/month"}];
+    return plans;
+  },
+
+  highlight: function(){
+    var id = Session.get('plan');
+    if (id == this.id) {
+      return "success";
+    } else {
+      return "info";
+    }
+  }
+});
 
 Template.App_home.events({
-  'click .plan1': function(){
-    Session.set('plan', 'plan1');
+  'click .plan': function(){
+    Session.set('plan', this.id);
   },
-  'click .plan2': function(){
-    Session.set('plan', 'plan2');
-  },
-  'click .plan3': function(){
-    Session.set('plan', 'plan3');
-  },
+
 });
 
 Template.App_home.onRendered( function() {
@@ -68,14 +85,12 @@ Template.App_home.onRendered( function() {
       const errorElement = document.getElementById('card-errors');
       errorElement.textContent = error.message;
     } else if (!plan){
-      console.log("ER");
+      Bert.alert('Please select a plan!', 'danger');
     } else {
 
       // Send the token to your server.
-      console.log(token);
-      console.log(Meteor.user());
-      console.log(plan);
-      Meteor.call('addCard', token);
+
+      Meteor.call('addCard', token, plan);
 
     }
   });

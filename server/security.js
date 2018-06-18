@@ -1,3 +1,5 @@
+import { Meteor } from 'meteor/meteor'
+
 Processes.allow({
   insert: function () { return true; },
   update: function () { return true; },

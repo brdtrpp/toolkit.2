@@ -74,7 +74,6 @@ momentjs:moment@2.22.2
 mongo@1.5.0
 mongo-dev-server@1.1.0
 mongo-id@1.0.7
-mrgalaxy:stripe@2.2.2
 nilsdannemann:pdfmake@1.0.38
 npm-bcrypt@0.9.3
 npm-mongo@3.0.7

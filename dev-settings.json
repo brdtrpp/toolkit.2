@@ -1,9 +1,16 @@
 {
   "public": {
-    "stripe": "pk_test_RocJBJ6UhrOt04N8wjX5Kqyc",
-    "environ": "development"
+    "stripe": {
+      "pk_key": "pk_test_RocJBJ6UhrOt04N8wjX5Kqyc"
+    },
+    "environ": "development",
+    "plans": {
+      "nonprofit": "plan_D3n2tPMZ4So1f0",
+      "commAnnual": "plan_D3n2hEVVu3rQrX",
+      "commMonthly": "plan_D3n1XDw3hwkb7E"
   },
-  "private": {
-    "stripe": "sk_test_GyS8Ovpy1BHVtuPZfoOVnoJG"
+  "stripe": {
+    "sk_key": "sk_test_GyS8Ovpy1BHVtuPZfoOVnoJG"
+  }
   }
 }
