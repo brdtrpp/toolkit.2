@@ -91,6 +91,8 @@ Template.App_home.onRendered( function() {
       // Send the token to your server.
 
       Meteor.call('addCard', token, plan);
+      Bert.alert("You've added a plan to your account", 'success');
+      Router.go('processes');
 
     }
   });

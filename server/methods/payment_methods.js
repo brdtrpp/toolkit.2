@@ -1,6 +1,6 @@
 Meteor.methods({
    subscribeCustomer: function(plan){
-    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripe = require('stripe')(Meteor.settings.stripe.sk_key);
     var stripeSubs = Meteor.wrapAsync(stripe.subscriptions.create,stripe.subscriptions);
     var stripeUpdateSubs = Meteor.wrapAsync(stripe.customers.update,stripe.customers);
     var stripeGetCustomer = Meteor.wrapAsync(stripe.customers.retrieve,stripe.customers);
@@ -31,7 +31,7 @@ Meteor.methods({
    },
 
    addCard: function(token, plan) {
-    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripe = require('stripe')(Meteor.settings.stripe.sk_key);
     var stripeCustomersCreate = Meteor.wrapAsync(stripe.customers.createSource,stripe.customers);
 
     try {

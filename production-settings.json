@@ -1,0 +1,21 @@
+{
+  "galaxy.meteor.com": {
+     "env": {
+       "MONGO_URL": "mongodb://brdtrpp:Gr%23%23nM0use3@ds049136-a0.mlab.com:49136,ds049136-a1.mlab.com:49136/toolkit?replicaSet=rs-ds049136"
+     }
+   },
+ "public": {
+    "stripe": {
+      "pk_key": "pk_live_iIGmjetlvjMHqrpS2Qen3udr"
+    },
+    "environ": "development",
+    "plans": {
+      "nonprofit": "plan_D4TgTlOWkezOHt",
+      "commAnnual": "plan_D4TgQOTD9mkJKT",
+      "commMonthly": "plan_D4Tfbgww33cU5T"
+    }
+  },
+  "stripe": {
+    "sk_key": "sk_live_C0nzwBoTB11nsXCS4jBRg5qn"
+  }
+}

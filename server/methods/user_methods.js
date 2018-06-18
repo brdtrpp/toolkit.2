@@ -1,6 +1,9 @@
 Meteor.methods({
   createCustomer : function(userInfo) {
-    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripe = require('stripe')(Meteor.settings.stripe.sk_key);
+    // var stripe = require("stripe")(
+    //   "sk_test_BQokikJOvBiI2HlWgH4olfQ2"
+    // );
     var stripeCustomersCreate = Meteor.wrapAsync(stripe.customers.create,stripe.customers);
 
     try {
@@ -14,7 +17,7 @@ Meteor.methods({
   },
 
   checkSubs: function() {
-    var stripe = require('stripe')(Meteor.settings.public.stripe.sk_key);
+    var stripe = require('stripe')(Meteor.settings.stripe.sk_key);
     var stripeGetCustomer = Meteor.wrapAsync(stripe.customers.retrieve,stripe.customers);
     const id = Meteor.user().customerId;
 
