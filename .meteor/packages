@@ -21,7 +21,6 @@ iron:router
 useraccounts:core
 useraccounts:bootstrap
 accounts-password@1.5.1
-twbs:bootstrap
 aldeed:schema-deny
 aldeed:collection2-core
 aldeed:autoform
@@ -37,3 +36,4 @@ hwillson:stub-collections
 babrahams:html2docx
 nilsdannemann:pdfmake
 underscore@1.0.10
+twbs:bootstrap
