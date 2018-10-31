@@ -5,6 +5,11 @@ AutoForm.hooks({
   insertScenarioForm: {
     before: {
      insert: function(doc) {
+       pro = Session.get('process');
+       app = Session.get('appId');
+       doc.process = pro;
+       doc.application = app;
+       console.log(doc)
        return doc;
      }
    },

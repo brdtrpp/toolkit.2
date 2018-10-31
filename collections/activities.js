@@ -20,12 +20,6 @@ ActivitiesSchema = new SimpleSchema({
     type: String,
     autoform: {
       omit: true,
-    },
-    autoValue: function(){
-      if (Meteor.isClient) {
-        var sce = Session.get('scenario');
-        return sce;
-      }
     }
   },
 

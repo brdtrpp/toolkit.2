@@ -19,14 +19,7 @@ SubactivitiesSchema = new SimpleSchema({
   activity: {
     type: String,
     autoform: {
-      omit: true,
-    },
-    autoValue: function(){
-      if (Meteor.isClient && !this.isSet) {
-        var act = Session.get('act')
-        return act;
-      }
-
+      omit: true
     }
   },
 
@@ -88,9 +81,9 @@ SubactivitiesSchema = new SimpleSchema({
       omit: true,
     },
     autoValue: function(){
-      if (Meteor.isClient) {
-        let p = Session.get('process');
-        let pdt = Processes.findOne({_id: p});
+        let act = Activities.findOne({_id: this.field('activity').value});
+        let sce = Scenarios.findOne({_id: act.scenario});
+        let pdt = sce.process;
         if (this.field('downtime').value === true) {
           let ru = ( ( this.field('itemNum').value * this.field('itemCost').value ) + this.field('consumable').value + ( ( this.field('duration').value / 60 ) * ( this.field('rate').value * this.field('people').value ) ) + ( ( this.field('duration').value / 60 ) * pdt.downtime ) );
           return ru;
@@ -98,7 +91,6 @@ SubactivitiesSchema = new SimpleSchema({
           let ru = (( this.field('itemNum').value * this.field('itemCost').value ) + this.field('consumable').value + ( ( this.field('duration').value / 60 ) * ( this.field('rate').value * this.field('people').value ) ) );
           return ru;
         }
-      }
     }
   }
 });

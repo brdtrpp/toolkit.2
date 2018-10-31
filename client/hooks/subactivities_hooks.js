@@ -5,6 +5,8 @@ AutoForm.hooks({
   insertSubactivityForm: {
     before: {
      insert: function(doc) {
+       act = Session.get('act');
+       doc.activity = act;
        return doc;
      }
    },

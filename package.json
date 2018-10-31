@@ -2,7 +2,7 @@
   "name": "toolkit2",
   "private": true,
   "scripts": {
-    "start": "meteor reset && meteor run --port $IP:$PORT --settings dev-settings.json",
+    "start": "meteor reset && meteor run --settings dev-settings.json",
     "deploy": "DEPLOY_HOSTNAME=galaxy.meteor.com meteor deploy --settings production-settings.json toolkit.meteorapp.com",
     "pro": "meteor reset && meteor run --raw-logs --port $IP:$PORT --settings dev-settings.json --production",
     "test": "spacejam test-packages --driver-package=practicalmeteor:mocha-console-runner myaccount:mypkg1 myaccount:mypkg2"
@@ -18,7 +18,7 @@
     "npm-check-updates": "^2.14.2",
     "popper.js": "^1.14.3",
     "simpl-schema": "^0.3.2",
-    "stripe": "^6.1.1"
+    "stripe": "^6.13.0"
   },
   "devDependencies": {
     "phantomjs-prebuilt": "^2.1.16"

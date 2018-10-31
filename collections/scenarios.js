@@ -1,4 +1,5 @@
 import SimpleSchema from 'simpl-schema';
+import { Meteor } from 'meteor/meteor'
 SimpleSchema.extendOptions(['autoform']);
 Scenarios = new Mongo.Collection('scenarios');
 
@@ -20,12 +21,6 @@ ScenarioSchema = new SimpleSchema({
     type: String,
     autoform: {
       omit: true,
-    },
-    autoValue: function(){
-      if (Meteor.isClient && !this.isSet){
-        var process = Session.get('process');
-        return process;
-      }
     }
   },
 
@@ -33,12 +28,6 @@ ScenarioSchema = new SimpleSchema({
     type: String,
     autoform: {
       omit: true,
-    },
-    autoValue: function(){
-      if (Meteor.isClient && !this.isSet){
-        var app = Session.get('appId');
-        return app;
-      }
     }
   },
 

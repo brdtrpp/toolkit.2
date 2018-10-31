@@ -5,6 +5,8 @@ AutoForm.hooks({
   insertActivitesForm: {
     before: {
      insert: function(doc) {
+       const sce = Session.get('scenario');
+       doc.scenario = sce;
        doc.rollup = 0;
        return doc;
      }
