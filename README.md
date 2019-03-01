@@ -24,9 +24,39 @@
 2.	Create Usable SQL Tables
 3.	Migrate to SQL
 ## 7.	Roles
+1.	Company Admin
+    1.	Add remove operators and editors
+    2.	“Remove” processes (store all processes for later)
+2.	Operator
+    1.	Can edit and insert Processes
+    2.	Cannot delete ANYTHING
+3.	Editors/Suppliers
+    1.	Can only update current templates
+4.	The layout of Company/User/Processes Interaction
+    1.	Company has many users
+    2.	Processes have one Company
+    3.	Company has many Processes
+    4.	User can edit or add Processes
+    5.	Company is created once by signup
+    6.	Role(Admin) can edit Company
 ## 8.	Usability
+1.	Calendar Edits for all dates
 ## 9.	Different language capability - enabled not necessarily executed
+1.	I18n implementation for major and minor conventions
 ## 10.	Reports
+1.	Create templates for reports
+2.	Must have our logo at the bottom
+3.	Timestamped and CreatedBy “username”
 ## 11.	Import/Export Functions
+1.	Save Processes to an external device
+2.	Import Saved Processes
 ## 12.	Applications (Handled with Cordova and Electron)
+1.	iOS
+2.	Android
+3.	Linux
+4.	Windows
+5.	Mac
 ## 13.	Pricing Structure
+1.	Create Owner’s Admin Panel for Joe
+    1.	Create special pricing (intergrate with Stripe)
+    2.	Create Resellers Accounts
